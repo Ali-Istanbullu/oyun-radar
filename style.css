@@ -1,0 +1,143 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #121212;
+    color: #ffffff;
+}
+
+header {
+    text-align: center;
+    padding: 30px 20px;
+    background: linear-gradient(90deg, #1e1e1e, #2d2d2d);
+    border-bottom: 2px solid #00ff88;
+}
+
+header h1 {
+    color: #00ff88;
+    margin-bottom: 10px;
+}
+
+main {
+    padding: 40px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+#loading {
+    text-align: center;
+    font-size: 1.2rem;
+    color: #888;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.game-card {
+    background-color: #1e1e1e;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.2s;
+    border: 1px solid #333;
+}
+
+.game-card:hover {
+    transform: translateY(-5px);
+    border-color: #00ff88;
+}
+
+/* Resim ve Rozet Taşıyıcı Alanı */
+.image-container {
+    position: relative;
+    width: 100%;
+    height: 140px;
+}
+
+.image-container .game-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Platform İkon Rozeti */
+.platform-badge {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: rgba(18, 18, 18, 0.85);
+    border-radius: 50%;
+    padding: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.6);
+    border: 1px solid #00ff88;
+    backdrop-filter: blur(4px);
+    transition: transform 0.2s;
+}
+
+.platform-badge:hover {
+    transform: scale(1.1);
+}
+
+.platform-badge img {
+    width: 20px;
+    height: 20px;
+    border-radius: 4px;
+}
+
+/* Alt Bilgi Kısımları */
+.game-info {
+    padding: 15px;
+}
+
+.game-title {
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.price-box {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 15px;
+}
+
+.old-price {
+    text-decoration: line-through;
+    color: #ff4444;
+    font-size: 0.9rem;
+}
+
+.new-price {
+    color: #00ff88;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.buy-btn {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin-top: 15px;
+    background-color: #00ff88;
+    color: #121212;
+    text-align: center;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 4px;
+}
+
+.buy-btn:hover {
+    background-color: #00cc6a;
+}
