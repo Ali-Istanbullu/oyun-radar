@@ -187,3 +187,49 @@ main {
 #search-btn:active {
     transform: scale(0.95);
 }
+
+/* --- SEO İçeriği ve Kurumsal Footer --- */
+.seo-content {
+    max-width: 1200px;
+    margin: 50px auto 20px auto;
+    padding: 30px;
+    background-color: #1a1a1a;
+    border-radius: 8px;
+    border-left: 4px solid #00ff88;
+}
+
+.seo-content h2 {
+    color: #00ff88;
+    margin-bottom: 15px;
+    font-size: 1.5rem;
+}
+
+.seo-content p {
+    line-height: 1.6;
+    margin-bottom: 15px;
+    color: #cccccc;
+}
+
+footer {
+    max-width: 1200px;
+    margin: 0 auto 20px auto;
+    padding: 20px;
+    text-align: center;
+    border-top: 1px solid #333;
+    color: #888;
+}
+
+.footer-links {
+    margin-bottom: 15px;
+}
+
+.footer-links a {
+    color: #00ff88;
+    text-decoration: none;
+    margin: 0 10px;
+    font-size: 0.9rem;
+}
+
+.footer-links a:hover {
+    text-decoration: underline;
+}
