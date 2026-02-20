@@ -1,16 +1,39 @@
 const gamesContainer = document.getElementById('games-container');
 const loadingText = document.getElementById('loading');
+const searchInput = document.getElementById('search-input');
+const searchBtn = document.getElementById('search-btn');
 
-// DİKKAT: storeID=1 kısmını sildik, artık tüm platformlardaki fırsatlar geliyor!
-// pageSize=60 olarak güncellendi, artık ekranda 60 oyun göreceğiz.
-async function getGameDeals() {
+// Motor artık arama kelimesini (searchQuery) algılayabiliyor
+async function getGameDeals(searchQuery = "") {
     try {
-        const response = await fetch('https://www.cheapshark.com/api/1.0/deals?sortBy=Deal%20Rating&pageSize=60');
+        // Yeni aramada ekranı temizle ve yükleniyor yazısını aç
+        gamesContainer.innerHTML = '';
+        loadingText.style.display = 'block';
+        loadingText.innerText = "İndirimler taranıyor... Yapay zeka iş başında 🤖";
+
+        // Temel API linkimiz
+        let url = 'https://www.cheapshark.com/api/1.0/deals?sortBy=Deal%20Rating&pageSize=60';
+        
+        // Eğer kullanıcı bir şey arattıysa, URL'nin sonuna oyun adını ekle
+        if (searchQuery !== "") {
+            url += `&title=${searchQuery}`;
+        }
+
+        const response = await fetch(url);
         const data = await response.json();
         
         loadingText.style.display = 'none';
+
+        // Eğer aranan oyun indirimde değilse veya yoksa
+        if (data.length === 0) {
+            loadingText.style.display = 'block';
+            loadingText.innerText = "Maalesef bu oyunda şu an bir indirim bulamadık 😔";
+            return;
+        }
+
         displayGames(data);
     } catch (error) {
+        loadingText.style.display = 'block';
         loadingText.innerText = "Fiyatlar çekilirken bir hata oluştu. Radar bozuldu!";
         console.error("API Hatası:", error);
     }
@@ -21,7 +44,6 @@ function displayGames(games) {
         const gameCard = document.createElement('div');
         gameCard.className = 'game-card';
         
-        // Kartın içindeki HTML yapısı. Resim ve platform ikonu birleşti.
         gameCard.innerHTML = `
             <div class="image-container">
                 <img src="${game.thumb}" alt="${game.title}" class="game-img">
@@ -43,5 +65,19 @@ function displayGames(games) {
     });
 }
 
-// Sayfa yüklendiğinde motoru çalıştır
+// Arama butonuna tıklandığında tetikle
+searchBtn.addEventListener('click', () => {
+    const query = searchInput.value.trim();
+    getGameDeals(query);
+});
+
+// Klavyeden "Enter" tuşuna basıldığında da tetikle (kullanıcı deneyimi!)
+searchInput.addEventListener('keypress', (e) => {
+    if (e.key === 'Enter') {
+        const query = searchInput.value.trim();
+        getGameDeals(query);
+    }
+});
+
+// Sayfa ilk açıldığında boş arama yapıp en iyi fırsatları getirir
 getGameDeals();
