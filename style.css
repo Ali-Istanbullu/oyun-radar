@@ -292,10 +292,22 @@ main {
 }
 .platform-badge img { width: 20px; height: 20px; border-radius: 4px; }
 .buy-btn {
-    display: inline-block; padding: 10px 25px; background-color: #00ff88;
-    color: #121212; text-decoration: none; font-weight: bold; border-radius: 25px; transition: background-color 0.3s;
+    display: inline-block;
+    padding: 8px 16px; /* İçi boşaltıldı, kibarlaştırıldı */
+    background-color: #00ff88;
+    color: #121212;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 0.95rem; /* Yazı boyutu hafif küçüldü */
+    border-radius: 20px; /* Daha zarif bir yuvarlaklık eklendi */
+    transition: background-color 0.3s, transform 0.1s;
+    white-space: nowrap; /* Yazının alt satıra kayması engellendi */
 }
-.buy-btn:hover { background-color: #00cc6a; }
+
+.buy-btn:hover { 
+    background-color: #00cc6a; 
+    transform: scale(1.05); /* Üzerine gelince tatlıca büyüsün */
+}
 
 /* --- SEO VE FOOTER --- */
 .seo-content {
