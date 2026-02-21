@@ -9,12 +9,12 @@ const searchBtn = document.getElementById('search-btn');
 const scrollLeftBtn = document.getElementById('scroll-left');
 const scrollRightBtn = document.getElementById('scroll-right');
 
-// Yağ gibi kaydırma (Smooth Scroll) motoru (Mesafe artırıldı)
+// Yağ gibi kaydırma (Smooth Scroll) motoru
 if (scrollLeftBtn && scrollRightBtn) {
     scrollLeftBtn.addEventListener('click', () => {
         featuredContainer.scrollBy({ 
             top: 0, 
-            left: -640, // Eskiden 320'ydi, artık tek tıkla 2 kart kayacak!
+            left: -640, 
             behavior: 'smooth' 
         });
     });
@@ -22,7 +22,7 @@ if (scrollLeftBtn && scrollRightBtn) {
     scrollRightBtn.addEventListener('click', () => {
         featuredContainer.scrollBy({ 
             top: 0, 
-            left: 640,  // Eskiden 320'ydi, artık tek tıkla 2 kart kayacak!
+            left: 640,  
             behavior: 'smooth' 
         });
     });
@@ -82,6 +82,7 @@ function displayFeaturedGames(games) {
     games.forEach(game => {
         const card = document.createElement('div');
         card.className = 'featured-card';
+        // YENİ: İndirim yüzdesi ve yeni fiyat yapısı
         card.innerHTML = `
             <div class="image-container">
                 <img src="${game.thumb}" alt="${game.title}" class="game-img">
@@ -92,8 +93,11 @@ function displayFeaturedGames(games) {
             <div class="game-info">
                 <h3 class="game-title" title="${game.title}">${game.title}</h3>
                 <div class="price-box">
-                    <span class="old-price">$${game.normalPrice}</span>
-                    <span class="new-price">$${game.salePrice}</span>
+                    <div class="discount-badge">-%${Math.round(game.savings)}</div>
+                    <div class="price-details">
+                        <span class="old-price">$${game.normalPrice}</span>
+                        <span class="new-price">$${game.salePrice}</span>
+                    </div>
                 </div>
                 <a href="https://www.cheapshark.com/redirect?dealID=${game.dealID}" target="_blank" class="buy-btn">İndirimi Gör</a>
             </div>
@@ -106,6 +110,7 @@ function displayListGames(games) {
     games.forEach(game => {
         const card = document.createElement('div');
         card.className = 'game-card';
+        // YENİ: İndirim yüzdesi ve yeni fiyat yapısı
         card.innerHTML = `
             <div class="image-container">
                 <img src="${game.thumb}" alt="${game.title}" class="game-img">
@@ -116,8 +121,11 @@ function displayListGames(games) {
             <div class="game-info">
                 <h3 class="game-title" title="${game.title}">${game.title}</h3>
                 <div class="price-box">
-                    <span class="old-price">$${game.normalPrice}</span>
-                    <span class="new-price">$${game.salePrice}</span>
+                    <div class="discount-badge">-%${Math.round(game.savings)}</div>
+                    <div class="price-details">
+                        <span class="old-price">$${game.normalPrice}</span>
+                        <span class="new-price">$${game.salePrice}</span>
+                    </div>
                 </div>
                 <a href="https://www.cheapshark.com/redirect?dealID=${game.dealID}" target="_blank" class="buy-btn">İndirimi Gör</a>
             </div>

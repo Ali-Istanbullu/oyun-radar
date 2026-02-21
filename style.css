@@ -46,35 +46,35 @@ main {
     margin-top: 20px;
 }
 
-/* --- YENİ: DEVASA VE ŞIK ARAMA MOTORU --- */
+/* --- ARAMA MOTORU --- */
 .search-container {
     margin-top: 10px;
     display: flex;
     justify-content: center;
-    gap: 15px; /* Boşluk artırıldı */
+    gap: 15px;
     width: 100%;
 }
 
 #search-input {
-    width: 80%; /* Daha geniş */
-    max-width: 650px; /* Maksimum genişlik artırıldı */
-    padding: 16px 25px; /* Daha dolgun görünüm */
-    border-radius: 30px; /* Daha yuvarlak hatlar */
+    width: 80%;
+    max-width: 650px;
+    padding: 16px 25px;
+    border-radius: 30px;
     border: 2px solid #333;
     background-color: #1a1a1a;
     color: #ffffff;
-    font-size: 1.1rem; /* Yazılar büyütüldü */
+    font-size: 1.1rem;
     outline: none;
     transition: border-color 0.3s, box-shadow 0.3s;
 }
 
 #search-input:focus {
     border-color: #00ff88;
-    box-shadow: 0 0 15px rgba(0, 255, 136, 0.2); /* Tıklayınca neon parlama eklendi */
+    box-shadow: 0 0 15px rgba(0, 255, 136, 0.2);
 }
 
 #search-btn {
-    padding: 16px 35px; /* Buton büyütüldü */
+    padding: 16px 35px;
     border-radius: 30px;
     border: none;
     background-color: #00ff88;
@@ -85,13 +85,8 @@ main {
     transition: background-color 0.3s, transform 0.1s;
 }
 
-#search-btn:hover {
-    background-color: #00cc6a;
-}
-
-#search-btn:active {
-    transform: scale(0.95);
-}
+#search-btn:hover { background-color: #00cc6a; }
+#search-btn:active { transform: scale(0.95); }
 
 /* --- BAŞLIKLAR --- */
 .section-title {
@@ -121,7 +116,7 @@ main {
     color: #00ff88;
     border: 2px solid #00ff88;
     border-radius: 50%;
-    width: 50px; /* Butonlar da biraz büyüdü */
+    width: 50px;
     height: 50px;
     font-size: 1.5rem;
     cursor: pointer;
@@ -145,7 +140,6 @@ main {
     display: flex;
     gap: 20px;
     overflow-x: auto;
-    /* YENİ: Tarayıcı inadını kırmak için animasyon zorunlu kılındı */
     scroll-behavior: smooth !important; 
     padding: 10px 0;
     -ms-overflow-style: none;
@@ -187,15 +181,6 @@ main {
     white-space: normal;
     margin-bottom: 15px;
     font-size: 1.1rem;
-}
-
-.featured-card .price-box {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    gap: 15px;
-    width: 100%;
-    margin-bottom: 15px;
 }
 
 .featured-card .buy-btn { width: 100%; text-align: center; }
@@ -249,11 +234,54 @@ main {
     text-overflow: ellipsis;
 }
 
-.game-card .price-box {
+/* --- YENİ: İNDİRİM ETİKETİ VE FİYAT KUTUSU --- */
+.price-box {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+}
+
+.featured-card .price-box {
+    justify-content: flex-start;
+    margin-bottom: 15px;
+}
+
+.discount-badge {
+    background-color: #00ff88;
+    color: #121212;
+    font-size: 1.3rem;
+    font-weight: 900;
+    padding: 6px 10px;
+    border-radius: 6px;
+    box-shadow: 0 2px 5px rgba(0, 255, 136, 0.3);
+}
+
+.price-details {
     display: flex;
     flex-direction: column;
     align-items: flex-end;
-    margin-top: 0;
+}
+
+.featured-card .price-details {
+    align-items: flex-start;
+}
+
+.old-price {
+    text-decoration: line-through;
+    color: #ff4444;
+    font-size: 0.9rem;
+    line-height: 1;
+    margin-bottom: 4px;
+}
+
+.new-price {
+    color: #ffffff; /* İndirim etiketi yeşil olduğu için yeni fiyatı beyaz yaptık, daha şık duruyor */
+    font-size: 1.2rem;
+    font-weight: bold;
+    line-height: 1;
 }
 
 /* --- ORTAK AYARLAR --- */
@@ -263,8 +291,6 @@ main {
     background: rgba(18, 18, 18, 0.9); border-radius: 4px; padding: 4px; border: 1px solid #00ff88;
 }
 .platform-badge img { width: 20px; height: 20px; border-radius: 4px; }
-.old-price { text-decoration: line-through; color: #ff4444; font-size: 0.9rem; }
-.new-price { color: #00ff88; font-size: 1.2rem; font-weight: bold; }
 .buy-btn {
     display: inline-block; padding: 10px 25px; background-color: #00ff88;
     color: #121212; text-decoration: none; font-weight: bold; border-radius: 25px; transition: background-color 0.3s;
@@ -307,6 +333,6 @@ footer {
     .game-card .image-container { width: 100%; height: 120px; }
     .game-card .game-info { flex-direction: column; align-items: flex-start; padding: 15px; }
     .game-card .game-title { width: 100%; margin-bottom: 10px; }
-    .game-card .price-box { flex-direction: row; gap: 10px; width: 100%; justify-content: flex-start; margin-bottom: 15px; }
+    .game-card .price-box { justify-content: flex-start; margin-bottom: 15px; }
     .game-card .buy-btn { width: 100%; text-align: center; }
 }
