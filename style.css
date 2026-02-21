@@ -16,26 +16,23 @@ header {
     padding: 30px 20px;
     background: linear-gradient(90deg, #1e1e1e, #2d2d2d);
     border-bottom: 2px solid #00ff88;
-    display: flex; /* İçerikleri ortalamak için */
+    display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-/* YENİ: Logo Tasarımı */
+/* YENİ: Logo Tasarımı (KÜÇÜLTÜLDÜ) */
 #site-logo {
-    width: 180px; /* Logonun boyutu */
+    width: 120px; /* Boyut 180px'den 120px'e düşürüldü */
     height: auto;
     margin-bottom: 15px;
-    /* Logoya temanıza uygun neon parlama efekti veriyoruz! */
     filter: drop-shadow(0 0 8px rgba(0, 255, 136, 0.6));
     transition: transform 0.3s;
 }
 
 #site-logo:hover {
-    transform: scale(1.05); /* Üzerine gelince hafif büyüsün */
+    transform: scale(1.05);
 }
-
-/* Eski H1 başlık stilini sildik */
 
 main {
     padding: 40px 20px;
