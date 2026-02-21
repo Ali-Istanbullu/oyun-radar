@@ -9,12 +9,12 @@ const searchBtn = document.getElementById('search-btn');
 const scrollLeftBtn = document.getElementById('scroll-left');
 const scrollRightBtn = document.getElementById('scroll-right');
 
-// Yağ gibi kaydırma (Smooth Scroll) motoru
+// Yağ gibi kaydırma (Smooth Scroll) motoru (Mesafe artırıldı)
 if (scrollLeftBtn && scrollRightBtn) {
     scrollLeftBtn.addEventListener('click', () => {
         featuredContainer.scrollBy({ 
             top: 0, 
-            left: -320, 
+            left: -640, // Eskiden 320'ydi, artık tek tıkla 2 kart kayacak!
             behavior: 'smooth' 
         });
     });
@@ -22,7 +22,7 @@ if (scrollLeftBtn && scrollRightBtn) {
     scrollRightBtn.addEventListener('click', () => {
         featuredContainer.scrollBy({ 
             top: 0, 
-            left: 320, 
+            left: 640,  // Eskiden 320'ydi, artık tek tıkla 2 kart kayacak!
             behavior: 'smooth' 
         });
     });
@@ -60,7 +60,6 @@ async function getGameDeals(searchQuery = "") {
             allDealsTitle.style.display = 'block';
             allDealsTitle.innerText = "Diğer Harika Fırsatlar";
 
-            // VİTRİNİ BÜYÜTTÜK: İlk 15 oyunu öne çıkanlara alıyoruz!
             const topGames = data.slice(0, 15); 
             const restGames = data.slice(15);   
 
