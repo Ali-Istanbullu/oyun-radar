@@ -6,6 +6,23 @@ const loadingText = document.getElementById('loading');
 const searchInput = document.getElementById('search-input');
 const searchBtn = document.getElementById('search-btn');
 
+// Kaydırma Butonları Tanımları
+const scrollLeftBtn = document.getElementById('scroll-left');
+const scrollRightBtn = document.getElementById('scroll-right');
+
+// Ok Tuşlarına Kaydırma (Scroll) İşlevi Ekliyoruz
+if (scrollLeftBtn && scrollRightBtn) {
+    scrollLeftBtn.addEventListener('click', () => {
+        // Sola doğru bir kart genişliği kadar kaydır
+        featuredContainer.scrollBy({ left: -320, behavior: 'smooth' });
+    });
+
+    scrollRightBtn.addEventListener('click', () => {
+        // Sağa doğru bir kart genişliği kadar kaydır
+        featuredContainer.scrollBy({ left: 320, behavior: 'smooth' });
+    });
+}
+
 async function getGameDeals(searchQuery = "") {
     try {
         gamesContainer.innerHTML = '';
@@ -16,7 +33,6 @@ async function getGameDeals(searchQuery = "") {
         loadingText.style.display = 'block';
         loadingText.innerText = "İndirimler taranıyor... Yapay zeka iş başında 🤖";
 
-        // Metacritic puanı 75+ olanları çekiyoruz
         let url = 'https://www.cheapshark.com/api/1.0/deals?sortBy=Deal%20Rating&pageSize=60&metacritic=75';
         
         if (searchQuery !== "") {
@@ -35,18 +51,16 @@ async function getGameDeals(searchQuery = "") {
         }
 
         if (searchQuery === "") {
-            // Arama yoksa siteyi ikiye böl
             featuredSection.style.display = 'block';
             allDealsTitle.style.display = 'block';
             allDealsTitle.innerText = "Diğer Harika Fırsatlar";
 
-            const topGames = data.slice(0, 6); // İlk 6 oyun öne çıkanlara
-            const restGames = data.slice(6);   // Geri kalanı listeye
+            const topGames = data.slice(0, 6); 
+            const restGames = data.slice(6);   
 
             displayFeaturedGames(topGames);
             displayListGames(restGames);
         } else {
-            // Arama yapıldıysa sadece listeyi göster
             allDealsTitle.style.display = 'block';
             allDealsTitle.innerText = `"${searchQuery}" İçin Sonuçlar`;
             displayListGames(data);
@@ -59,7 +73,6 @@ async function getGameDeals(searchQuery = "") {
     }
 }
 
-// BÜYÜK KARTLARI BASAN FONKSİYON
 function displayFeaturedGames(games) {
     games.forEach(game => {
         const card = document.createElement('div');
@@ -84,7 +97,6 @@ function displayFeaturedGames(games) {
     });
 }
 
-// YATAY LİSTEYİ BASAN FONKSİYON
 function displayListGames(games) {
     games.forEach(game => {
         const card = document.createElement('div');
