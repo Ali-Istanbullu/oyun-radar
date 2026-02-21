@@ -16,6 +16,7 @@ async function getGameDeals(searchQuery = "") {
         loadingText.style.display = 'block';
         loadingText.innerText = "İndirimler taranıyor... Yapay zeka iş başında 🤖";
 
+        // Metacritic puanı 75+ olanları çekiyoruz
         let url = 'https://www.cheapshark.com/api/1.0/deals?sortBy=Deal%20Rating&pageSize=60&metacritic=75';
         
         if (searchQuery !== "") {
@@ -33,20 +34,19 @@ async function getGameDeals(searchQuery = "") {
             return;
         }
 
-        // EĞER ARAMA YAPILMADIYSA (ANA SAYFAYSA) SİTEYİ İKİYE BÖL
         if (searchQuery === "") {
+            // Arama yoksa siteyi ikiye böl
             featuredSection.style.display = 'block';
             allDealsTitle.style.display = 'block';
             allDealsTitle.innerText = "Diğer Harika Fırsatlar";
 
-            // İlk 6 oyunu ayırıp Öne Çıkanlara gönder
-            const topGames = data.slice(0, 6);
-            const restGames = data.slice(6);
+            const topGames = data.slice(0, 6); // İlk 6 oyun öne çıkanlara
+            const restGames = data.slice(6);   // Geri kalanı listeye
 
             displayFeaturedGames(topGames);
             displayListGames(restGames);
         } else {
-            // Arama yapıldıysa öne çıkanları gizle, hepsini normal listele
+            // Arama yapıldıysa sadece listeyi göster
             allDealsTitle.style.display = 'block';
             allDealsTitle.innerText = `"${searchQuery}" İçin Sonuçlar`;
             displayListGames(data);
