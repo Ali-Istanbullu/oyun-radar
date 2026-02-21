@@ -9,7 +9,8 @@ async function getGameDeals(searchQuery = "") {
         loadingText.style.display = 'block';
         loadingText.innerText = "İndirimler taranıyor... Yapay zeka iş başında 🤖";
 
-        let url = 'https://www.cheapshark.com/api/1.0/deals?sortBy=Deal%20Rating&pageSize=60';
+        // YENİ: Metacritic skoru 75 ve üzeri olan kaliteli oyunları getiriyoruz!
+        let url = 'https://www.cheapshark.com/api/1.0/deals?sortBy=Deal%20Rating&pageSize=60&metacritic=75';
         
         if (searchQuery !== "") {
             url += `&title=${searchQuery}`;

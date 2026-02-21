@@ -35,29 +35,35 @@ main {
     margin-top: 20px;
 }
 
+/* --- YENİ YATAY (LİSTE) TASARIMI BAŞLANGICI --- */
 .grid-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
 }
 
 .game-card {
+    display: flex;
+    flex-direction: row;
     background-color: #1e1e1e;
     border-radius: 8px;
     overflow: hidden;
-    transition: transform 0.2s;
+    transition: transform 0.2s, border-color 0.2s;
     border: 1px solid #333;
+    height: 100px; /* Kartları ince dikdörtgen yaptık */
+    align-items: center;
 }
 
 .game-card:hover {
-    transform: translateY(-5px);
+    transform: translateX(5px); /* Yukarı değil, sağa kaysın */
     border-color: #00ff88;
 }
 
 .image-container {
     position: relative;
-    width: 100%;
-    height: 140px;
+    width: 200px;
+    height: 100px;
+    flex-shrink: 0;
 }
 
 .image-container .game-img {
@@ -68,22 +74,12 @@ main {
 
 .platform-badge {
     position: absolute;
-    top: 10px;
-    right: 10px;
-    background: rgba(18, 18, 18, 0.85);
-    border-radius: 50%;
-    padding: 6px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.6);
+    bottom: 5px;
+    left: 5px;
+    background: rgba(18, 18, 18, 0.9);
+    border-radius: 4px;
+    padding: 4px;
     border: 1px solid #00ff88;
-    backdrop-filter: blur(4px);
-    transition: transform 0.2s;
-}
-
-.platform-badge:hover {
-    transform: scale(1.1);
 }
 
 .platform-badge img {
@@ -93,12 +89,18 @@ main {
 }
 
 .game-info {
-    padding: 15px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 0 20px;
 }
 
 .game-title {
     font-size: 1.1rem;
-    margin-bottom: 10px;
+    margin-bottom: 0;
+    width: 40%; /* Başlığa yer ayırdık */
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -106,9 +108,9 @@ main {
 
 .price-box {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: 15px;
+    flex-direction: column;
+    align-items: flex-end;
+    margin-top: 0;
 }
 
 .old-price {
@@ -124,21 +126,33 @@ main {
 }
 
 .buy-btn {
-    display: block;
-    width: 100%;
-    padding: 10px;
-    margin-top: 15px;
+    display: inline-block;
+    width: auto;
+    padding: 10px 25px;
+    margin-top: 0;
     background-color: #00ff88;
     color: #121212;
     text-align: center;
     text-decoration: none;
     font-weight: bold;
-    border-radius: 4px;
+    border-radius: 25px;
+    transition: background-color 0.3s;
 }
 
 .buy-btn:hover {
     background-color: #00cc6a;
 }
+
+/* Telefondan girenler için alt alta düşme ayarı */
+@media (max-width: 768px) {
+    .game-card { height: auto; flex-direction: column; align-items: flex-start; }
+    .image-container { width: 100%; height: 120px; }
+    .game-info { flex-direction: column; align-items: flex-start; padding: 15px; }
+    .game-title { width: 100%; margin-bottom: 10px; }
+    .price-box { flex-direction: row; gap: 10px; width: 100%; justify-content: flex-start; margin-bottom: 15px; }
+    .buy-btn { width: 100%; text-align: center; }
+}
+/* --- YENİ YATAY (LİSTE) TASARIMI BİTİŞİ --- */
 
 /* --- Arama Çubuğu Tasarımı --- */
 .search-container {
@@ -231,7 +245,7 @@ footer {
     text-decoration: underline;
 }
 
-/* --- YENİ: Alt Sayfalar İçin Tasarım --- */
+/* --- Alt Sayfalar İçin Tasarım --- */
 .page-content {
     max-width: 800px;
     margin: 40px auto;
