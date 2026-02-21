@@ -10,17 +10,32 @@ body {
     color: #ffffff;
 }
 
+/* --- HEADER VE LOGO --- */
 header {
     text-align: center;
     padding: 30px 20px;
     background: linear-gradient(90deg, #1e1e1e, #2d2d2d);
     border-bottom: 2px solid #00ff88;
+    display: flex; /* İçerikleri ortalamak için */
+    flex-direction: column;
+    align-items: center;
 }
 
-header h1 {
-    color: #00ff88;
-    margin-bottom: 10px;
+/* YENİ: Logo Tasarımı */
+#site-logo {
+    width: 180px; /* Logonun boyutu */
+    height: auto;
+    margin-bottom: 15px;
+    /* Logoya temanıza uygun neon parlama efekti veriyoruz! */
+    filter: drop-shadow(0 0 8px rgba(0, 255, 136, 0.6));
+    transition: transform 0.3s;
 }
+
+#site-logo:hover {
+    transform: scale(1.05); /* Üzerine gelince hafif büyüsün */
+}
+
+/* Eski H1 başlık stilini sildik */
 
 main {
     padding: 40px 20px;
@@ -45,7 +60,7 @@ main {
     padding-bottom: 10px;
 }
 
-/* --- ÖNE ÇIKANLAR (BÜYÜK KARTLAR) --- */
+/* --- ÖNE ÇIKANLAR (CAROUSEL) --- */
 #featured-section {
     margin-bottom: 40px;
 }
@@ -80,31 +95,22 @@ main {
     transform: scale(1.1);
 }
 
-#scroll-left {
-    left: -20px;
-}
-
-#scroll-right {
-    right: -20px;
-}
+#scroll-left { left: -20px; }
+#scroll-right { right: -20px; }
 
 .featured-carousel {
     display: flex;
     gap: 20px;
     overflow-x: auto;
-    scroll-behavior: smooth; /* Mıknatıs kaldırıldı, sadece yumuşak kayma kaldı! */
+    scroll-behavior: smooth;
     padding: 10px 0;
-    
-    /* Çirkin scrollbar'ı gizliyoruz */
     -ms-overflow-style: none;
     scrollbar-width: none;
 }
-.featured-carousel::-webkit-scrollbar {
-    display: none;
-}
+.featured-carousel::-webkit-scrollbar { display: none; }
 
 .featured-card {
-    flex: 0 0 300px; /* Genişlik sabit */
+    flex: 0 0 300px;
     background-color: #1e1e1e;
     border-radius: 12px;
     overflow: hidden;
@@ -148,12 +154,9 @@ main {
     margin-bottom: 15px;
 }
 
-.featured-card .buy-btn {
-    width: 100%;
-    text-align: center;
-}
+.featured-card .buy-btn { width: 100%; text-align: center; }
 
-/* --- YATAY LİSTE (TÜM İNDİRİMLER) --- */
+/* --- YATAY LİSTE --- */
 .grid-container {
     display: flex;
     flex-direction: column;
@@ -209,178 +212,64 @@ main {
     margin-top: 0;
 }
 
-/* --- ORTAK RESİM VE İKON AYARLARI --- */
-.image-container .game-img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
+/* --- ORTAK AYARLAR --- */
+.image-container .game-img { width: 100%; height: 100%; object-fit: cover; }
 .platform-badge {
-    position: absolute;
-    bottom: 5px;
-    left: 5px;
-    background: rgba(18, 18, 18, 0.9);
-    border-radius: 4px;
-    padding: 4px;
-    border: 1px solid #00ff88;
+    position: absolute; bottom: 5px; left: 5px;
+    background: rgba(18, 18, 18, 0.9); border-radius: 4px; padding: 4px; border: 1px solid #00ff88;
 }
-
-.platform-badge img {
-    width: 20px;
-    height: 20px;
-    border-radius: 4px;
-}
-
-.old-price {
-    text-decoration: line-through;
-    color: #ff4444;
-    font-size: 0.9rem;
-}
-
-.new-price {
-    color: #00ff88;
-    font-size: 1.2rem;
-    font-weight: bold;
-}
-
+.platform-badge img { width: 20px; height: 20px; border-radius: 4px; }
+.old-price { text-decoration: line-through; color: #ff4444; font-size: 0.9rem; }
+.new-price { color: #00ff88; font-size: 1.2rem; font-weight: bold; }
 .buy-btn {
-    display: inline-block;
-    padding: 10px 25px;
-    background-color: #00ff88;
-    color: #121212;
-    text-decoration: none;
-    font-weight: bold;
-    border-radius: 25px;
-    transition: background-color 0.3s;
+    display: inline-block; padding: 10px 25px; background-color: #00ff88;
+    color: #121212; text-decoration: none; font-weight: bold; border-radius: 25px; transition: background-color 0.3s;
 }
-
-.buy-btn:hover {
-    background-color: #00cc6a;
-}
+.buy-btn:hover { background-color: #00cc6a; }
 
 /* --- ARAMA ÇUBUĞU --- */
 .search-container {
-    margin-top: 20px;
-    display: flex;
-    justify-content: center;
-    gap: 10px;
+    margin-top: 20px; display: flex; justify-content: center; gap: 10px;
 }
-
 #search-input {
-    width: 60%;
-    max-width: 400px;
-    padding: 12px 20px;
-    border-radius: 25px;
-    border: 2px solid #333;
-    background-color: #1e1e1e;
-    color: #ffffff;
-    font-size: 1rem;
-    outline: none;
-    transition: border-color 0.3s;
+    width: 60%; max-width: 400px; padding: 12px 20px; border-radius: 25px;
+    border: 2px solid #333; background-color: #1e1e1e; color: #ffffff; font-size: 1rem; outline: none; transition: border-color 0.3s;
 }
-
-#search-input:focus {
-    border-color: #00ff88;
-}
-
+#search-input:focus { border-color: #00ff88; }
 #search-btn {
-    padding: 12px 25px;
-    border-radius: 25px;
-    border: none;
-    background-color: #00ff88;
-    color: #121212;
-    font-weight: bold;
-    font-size: 1rem;
-    cursor: pointer;
-    transition: background-color 0.3s, transform 0.1s;
+    padding: 12px 25px; border-radius: 25px; border: none; background-color: #00ff88;
+    color: #121212; font-weight: bold; font-size: 1rem; cursor: pointer; transition: background-color 0.3s, transform 0.1s;
 }
+#search-btn:hover { background-color: #00cc6a; }
 
-#search-btn:hover {
-    background-color: #00cc6a;
-}
-
-/* --- SEO İÇERİĞİ VE FOOTER --- */
+/* --- SEO VE FOOTER --- */
 .seo-content {
-    max-width: 1200px;
-    margin: 50px auto 20px auto;
-    padding: 30px;
-    background-color: #1a1a1a;
-    border-radius: 8px;
-    border-left: 4px solid #00ff88;
+    max-width: 1200px; margin: 50px auto 20px auto; padding: 30px;
+    background-color: #1a1a1a; border-radius: 8px; border-left: 4px solid #00ff88;
 }
-
-.seo-content h2 {
-    color: #00ff88;
-    margin-bottom: 15px;
-    font-size: 1.5rem;
-}
-
-.seo-content p {
-    line-height: 1.6;
-    margin-bottom: 15px;
-    color: #cccccc;
-}
-
+.seo-content h2 { color: #00ff88; margin-bottom: 15px; font-size: 1.5rem; }
+.seo-content p { line-height: 1.6; margin-bottom: 15px; color: #cccccc; }
 footer {
-    max-width: 1200px;
-    margin: 0 auto 20px auto;
-    padding: 20px;
-    text-align: center;
-    border-top: 1px solid #333;
-    color: #888;
+    max-width: 1200px; margin: 0 auto 20px auto; padding: 20px;
+    text-align: center; border-top: 1px solid #333; color: #888;
 }
-
-.footer-links {
-    margin-bottom: 15px;
-}
-
-.footer-links a {
-    color: #00ff88;
-    text-decoration: none;
-    margin: 0 10px;
-    font-size: 0.9rem;
-}
-
-.footer-links a:hover {
-    text-decoration: underline;
-}
+.footer-links { margin-bottom: 15px; }
+.footer-links a { color: #00ff88; text-decoration: none; margin: 0 10px; font-size: 0.9rem; }
+.footer-links a:hover { text-decoration: underline; }
 
 /* --- ALT SAYFALAR --- */
 .page-content {
-    max-width: 800px;
-    margin: 40px auto;
-    padding: 30px;
-    background-color: #1a1a1a;
-    border-radius: 8px;
-    color: #cccccc;
-    line-height: 1.6;
-    border-top: 3px solid #00ff88;
+    max-width: 800px; margin: 40px auto; padding: 30px;
+    background-color: #1a1a1a; border-radius: 8px; color: #cccccc; line-height: 1.6; border-top: 3px solid #00ff88;
 }
-
-.page-content h2, .page-content h3 {
-    color: #00ff88;
-    margin-bottom: 15px;
-    margin-top: 25px;
-}
-
-.page-content a {
-    color: #00ff88;
-    text-decoration: none;
-}
-
+.page-content h2, .page-content h3 { color: #00ff88; margin-bottom: 15px; margin-top: 25px; }
+.page-content a { color: #00ff88; text-decoration: none; }
 .back-link {
-    display: inline-block;
-    margin-top: 20px;
-    padding: 10px 20px;
-    background-color: #333;
-    color: #00ff88;
-    border-radius: 25px;
-    text-decoration: none;
-    font-weight: bold;
+    display: inline-block; margin-top: 20px; padding: 10px 20px;
+    background-color: #333; color: #00ff88; border-radius: 25px; text-decoration: none; font-weight: bold;
 }
 
-/* TELEFON EKRANI UYUMU */
+/* TELEFON UYUMU */
 @media (max-width: 768px) {
     .carousel-btn { display: none; }
     .game-card { height: auto; flex-direction: column; align-items: flex-start; }
