@@ -6,20 +6,25 @@ const loadingText = document.getElementById('loading');
 const searchInput = document.getElementById('search-input');
 const searchBtn = document.getElementById('search-btn');
 
-// Kaydırma Butonları Tanımları
 const scrollLeftBtn = document.getElementById('scroll-left');
 const scrollRightBtn = document.getElementById('scroll-right');
 
-// Ok Tuşlarına Kaydırma (Scroll) İşlevi Ekliyoruz
+// Yağ gibi kaydırma (Smooth Scroll) motoru
 if (scrollLeftBtn && scrollRightBtn) {
     scrollLeftBtn.addEventListener('click', () => {
-        // Sola doğru bir kart genişliği kadar kaydır
-        featuredContainer.scrollBy({ left: -320, behavior: 'smooth' });
+        featuredContainer.scrollBy({ 
+            top: 0, 
+            left: -320, 
+            behavior: 'smooth' 
+        });
     });
 
     scrollRightBtn.addEventListener('click', () => {
-        // Sağa doğru bir kart genişliği kadar kaydır
-        featuredContainer.scrollBy({ left: 320, behavior: 'smooth' });
+        featuredContainer.scrollBy({ 
+            top: 0, 
+            left: 320, 
+            behavior: 'smooth' 
+        });
     });
 }
 
@@ -55,8 +60,9 @@ async function getGameDeals(searchQuery = "") {
             allDealsTitle.style.display = 'block';
             allDealsTitle.innerText = "Diğer Harika Fırsatlar";
 
-            const topGames = data.slice(0, 6); 
-            const restGames = data.slice(6);   
+            // VİTRİNİ BÜYÜTTÜK: İlk 15 oyunu öne çıkanlara alıyoruz!
+            const topGames = data.slice(0, 15); 
+            const restGames = data.slice(15);   
 
             displayFeaturedGames(topGames);
             displayListGames(restGames);
