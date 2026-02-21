@@ -1,297 +1,83 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-
-body {
-    background-color: #121212;
-    color: #ffffff;
-}
-
-header {
-    text-align: center;
-    padding: 30px 20px;
-    background: linear-gradient(90deg, #1e1e1e, #2d2d2d);
-    border-bottom: 2px solid #00ff88;
-}
-
-header h1 {
+/* --- YENİ: ÖNE ÇIKANLAR (BÜYÜK KARTLAR) TASARIMI --- */
+.section-title {
     color: #00ff88;
-    margin-bottom: 10px;
-}
-
-main {
-    padding: 40px 20px;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-#loading {
-    text-align: center;
-    font-size: 1.2rem;
-    color: #888;
-    margin-top: 20px;
-}
-
-/* --- YENİ YATAY (LİSTE) TASARIMI BAŞLANGICI --- */
-.grid-container {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-}
-
-.game-card {
-    display: flex;
-    flex-direction: row;
-    background-color: #1e1e1e;
-    border-radius: 8px;
-    overflow: hidden;
-    transition: transform 0.2s, border-color 0.2s;
-    border: 1px solid #333;
-    height: 100px; /* Kartları ince dikdörtgen yaptık */
-    align-items: center;
-}
-
-.game-card:hover {
-    transform: translateX(5px); /* Yukarı değil, sağa kaysın */
-    border-color: #00ff88;
-}
-
-.image-container {
-    position: relative;
-    width: 200px;
-    height: 100px;
-    flex-shrink: 0;
-}
-
-.image-container .game-img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.platform-badge {
-    position: absolute;
-    bottom: 5px;
-    left: 5px;
-    background: rgba(18, 18, 18, 0.9);
-    border-radius: 4px;
-    padding: 4px;
-    border: 1px solid #00ff88;
-}
-
-.platform-badge img {
-    width: 20px;
-    height: 20px;
-    border-radius: 4px;
-}
-
-.game-info {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    padding: 0 20px;
-}
-
-.game-title {
-    font-size: 1.1rem;
-    margin-bottom: 0;
-    width: 40%; /* Başlığa yer ayırdık */
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
-
-.price-box {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    margin-top: 0;
-}
-
-.old-price {
-    text-decoration: line-through;
-    color: #ff4444;
-    font-size: 0.9rem;
-}
-
-.new-price {
-    color: #00ff88;
-    font-size: 1.2rem;
-    font-weight: bold;
-}
-
-.buy-btn {
-    display: inline-block;
-    width: auto;
-    padding: 10px 25px;
-    margin-top: 0;
-    background-color: #00ff88;
-    color: #121212;
-    text-align: center;
-    text-decoration: none;
-    font-weight: bold;
-    border-radius: 25px;
-    transition: background-color 0.3s;
-}
-
-.buy-btn:hover {
-    background-color: #00cc6a;
-}
-
-/* Telefondan girenler için alt alta düşme ayarı */
-@media (max-width: 768px) {
-    .game-card { height: auto; flex-direction: column; align-items: flex-start; }
-    .image-container { width: 100%; height: 120px; }
-    .game-info { flex-direction: column; align-items: flex-start; padding: 15px; }
-    .game-title { width: 100%; margin-bottom: 10px; }
-    .price-box { flex-direction: row; gap: 10px; width: 100%; justify-content: flex-start; margin-bottom: 15px; }
-    .buy-btn { width: 100%; text-align: center; }
-}
-/* --- YENİ YATAY (LİSTE) TASARIMI BİTİŞİ --- */
-
-/* --- Arama Çubuğu Tasarımı --- */
-.search-container {
-    margin-top: 20px;
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-}
-
-#search-input {
-    width: 60%;
-    max-width: 400px;
-    padding: 12px 20px;
-    border-radius: 25px;
-    border: 2px solid #333;
-    background-color: #1e1e1e;
-    color: #ffffff;
-    font-size: 1rem;
-    outline: none;
-    transition: border-color 0.3s;
-}
-
-#search-input:focus {
-    border-color: #00ff88;
-}
-
-#search-btn {
-    padding: 12px 25px;
-    border-radius: 25px;
-    border: none;
-    background-color: #00ff88;
-    color: #121212;
-    font-weight: bold;
-    font-size: 1rem;
-    cursor: pointer;
-    transition: background-color 0.3s, transform 0.1s;
-}
-
-#search-btn:hover {
-    background-color: #00cc6a;
-}
-
-#search-btn:active {
-    transform: scale(0.95);
-}
-
-/* --- SEO İçeriği ve Kurumsal Footer --- */
-.seo-content {
-    max-width: 1200px;
-    margin: 50px auto 20px auto;
-    padding: 30px;
-    background-color: #1a1a1a;
-    border-radius: 8px;
-    border-left: 4px solid #00ff88;
-}
-
-.seo-content h2 {
-    color: #00ff88;
-    margin-bottom: 15px;
+    margin-bottom: 20px;
+    margin-top: 10px;
     font-size: 1.5rem;
+    border-bottom: 2px solid #333;
+    padding-bottom: 10px;
 }
 
-.seo-content p {
-    line-height: 1.6;
+#featured-section {
+    margin-bottom: 40px;
+}
+
+.featured-carousel {
+    display: flex;
+    gap: 20px;
+    overflow-x: auto;
+    padding-bottom: 15px; /* Scrollbar boşluğu */
+    scroll-snap-type: x mandatory;
+}
+
+/* Şık Kaydırma Çubuğu (Scrollbar) */
+.featured-carousel::-webkit-scrollbar {
+    height: 8px;
+}
+.featured-carousel::-webkit-scrollbar-track {
+    background: #1e1e1e;
+    border-radius: 4px;
+}
+.featured-carousel::-webkit-scrollbar-thumb {
+    background: #00ff88;
+    border-radius: 4px;
+}
+
+/* Öne Çıkan Devasa Kartlar */
+.featured-card {
+    flex: 0 0 300px; /* Kart genişliği sabitlendi */
+    scroll-snap-align: start;
+    background-color: #1e1e1e;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid #333;
+    transition: transform 0.3s, border-color 0.3s;
+    display: flex;
+    flex-direction: column;
+}
+
+.featured-card:hover {
+    transform: translateY(-8px);
+    border-color: #00ff88;
+}
+
+.featured-card .image-container {
+    width: 100%;
+    height: 160px; /* Büyük resim alanı */
+}
+
+.featured-card .game-info {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 15px;
+}
+
+.featured-card .game-title {
+    width: 100%;
+    white-space: normal; /* Uzun isimler alta geçsin */
     margin-bottom: 15px;
-    color: #cccccc;
+    font-size: 1.2rem;
 }
 
-footer {
-    max-width: 1200px;
-    margin: 0 auto 20px auto;
-    padding: 20px;
+.featured-card .price-box {
+    flex-direction: row;
+    justify-content: flex-start;
+    gap: 15px;
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+.featured-card .buy-btn {
+    width: 100%;
     text-align: center;
-    border-top: 1px solid #333;
-    color: #888;
-}
-
-.footer-links {
-    margin-bottom: 15px;
-}
-
-.footer-links a {
-    color: #00ff88;
-    text-decoration: none;
-    margin: 0 10px;
-    font-size: 0.9rem;
-}
-
-.footer-links a:hover {
-    text-decoration: underline;
-}
-
-/* --- Alt Sayfalar İçin Tasarım --- */
-.page-content {
-    max-width: 800px;
-    margin: 40px auto;
-    padding: 30px;
-    background-color: #1a1a1a;
-    border-radius: 8px;
-    color: #cccccc;
-    line-height: 1.6;
-    border-top: 3px solid #00ff88;
-}
-
-.page-content h2, .page-content h3 {
-    color: #00ff88;
-    margin-bottom: 15px;
-    margin-top: 25px;
-}
-
-.page-content p, .page-content ul {
-    margin-bottom: 15px;
-}
-
-.page-content ul {
-    margin-left: 20px;
-}
-
-.page-content a {
-    color: #00ff88;
-    text-decoration: none;
-}
-
-.page-content a:hover {
-    text-decoration: underline;
-}
-
-.back-link {
-    display: inline-block;
-    margin-top: 20px;
-    padding: 10px 20px;
-    background-color: #333;
-    color: #00ff88;
-    border-radius: 25px;
-    text-decoration: none;
-    font-weight: bold;
-    transition: background 0.3s;
-}
-
-.back-link:hover {
-    background-color: #444;
 }
