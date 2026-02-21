@@ -45,7 +45,7 @@ main {
     padding-bottom: 10px;
 }
 
-/* --- YENİ: KAYDIRMA BUTONLARI (CAROUSEL) TASARIMI --- */
+/* --- ÖNE ÇIKANLAR (BÜYÜK KARTLAR) --- */
 #featured-section {
     margin-bottom: 40px;
 }
@@ -92,21 +92,19 @@ main {
     display: flex;
     gap: 20px;
     overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    scroll-behavior: smooth; /* Pürüzsüz kayma */
+    scroll-behavior: smooth; /* Mıknatıs kaldırıldı, sadece yumuşak kayma kaldı! */
     padding: 10px 0;
     
     /* Çirkin scrollbar'ı gizliyoruz */
-    -ms-overflow-style: none;  /* IE and Edge */
-    scrollbar-width: none;  /* Firefox */
+    -ms-overflow-style: none;
+    scrollbar-width: none;
 }
 .featured-carousel::-webkit-scrollbar {
-    display: none; /* Chrome, Safari and Opera */
+    display: none;
 }
 
 .featured-card {
-    flex: 0 0 300px;
-    scroll-snap-align: start;
+    flex: 0 0 300px; /* Genişlik sabit */
     background-color: #1e1e1e;
     border-radius: 12px;
     overflow: hidden;
@@ -384,7 +382,7 @@ footer {
 
 /* TELEFON EKRANI UYUMU */
 @media (max-width: 768px) {
-    .carousel-btn { display: none; } /* Telefonda parmakla kaydırmak daha kolay olduğu için butonları gizledik */
+    .carousel-btn { display: none; }
     .game-card { height: auto; flex-direction: column; align-items: flex-start; }
     .game-card .image-container { width: 100%; height: 120px; }
     .game-card .game-info { flex-direction: column; align-items: flex-start; padding: 15px; }
