@@ -54,7 +54,6 @@ main {
     border-color: #00ff88;
 }
 
-/* Resim ve Rozet Taşıyıcı Alanı */
 .image-container {
     position: relative;
     width: 100%;
@@ -67,7 +66,6 @@ main {
     object-fit: cover;
 }
 
-/* Platform İkon Rozeti */
 .platform-badge {
     position: absolute;
     top: 10px;
@@ -94,7 +92,6 @@ main {
     border-radius: 4px;
 }
 
-/* Alt Bilgi Kısımları */
 .game-info {
     padding: 15px;
 }
@@ -232,4 +229,55 @@ footer {
 
 .footer-links a:hover {
     text-decoration: underline;
+}
+
+/* --- YENİ: Alt Sayfalar İçin Tasarım --- */
+.page-content {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 30px;
+    background-color: #1a1a1a;
+    border-radius: 8px;
+    color: #cccccc;
+    line-height: 1.6;
+    border-top: 3px solid #00ff88;
+}
+
+.page-content h2, .page-content h3 {
+    color: #00ff88;
+    margin-bottom: 15px;
+    margin-top: 25px;
+}
+
+.page-content p, .page-content ul {
+    margin-bottom: 15px;
+}
+
+.page-content ul {
+    margin-left: 20px;
+}
+
+.page-content a {
+    color: #00ff88;
+    text-decoration: none;
+}
+
+.page-content a:hover {
+    text-decoration: underline;
+}
+
+.back-link {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #333;
+    color: #00ff88;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background 0.3s;
+}
+
+.back-link:hover {
+    background-color: #444;
 }

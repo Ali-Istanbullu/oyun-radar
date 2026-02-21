@@ -3,18 +3,14 @@ const loadingText = document.getElementById('loading');
 const searchInput = document.getElementById('search-input');
 const searchBtn = document.getElementById('search-btn');
 
-// Motor artık arama kelimesini (searchQuery) algılayabiliyor
 async function getGameDeals(searchQuery = "") {
     try {
-        // Yeni aramada ekranı temizle ve yükleniyor yazısını aç
         gamesContainer.innerHTML = '';
         loadingText.style.display = 'block';
         loadingText.innerText = "İndirimler taranıyor... Yapay zeka iş başında 🤖";
 
-        // Temel API linkimiz
         let url = 'https://www.cheapshark.com/api/1.0/deals?sortBy=Deal%20Rating&pageSize=60';
         
-        // Eğer kullanıcı bir şey arattıysa, URL'nin sonuna oyun adını ekle
         if (searchQuery !== "") {
             url += `&title=${searchQuery}`;
         }
@@ -24,7 +20,6 @@ async function getGameDeals(searchQuery = "") {
         
         loadingText.style.display = 'none';
 
-        // Eğer aranan oyun indirimde değilse veya yoksa
         if (data.length === 0) {
             loadingText.style.display = 'block';
             loadingText.innerText = "Maalesef bu oyunda şu an bir indirim bulamadık 😔";
@@ -65,13 +60,11 @@ function displayGames(games) {
     });
 }
 
-// Arama butonuna tıklandığında tetikle
 searchBtn.addEventListener('click', () => {
     const query = searchInput.value.trim();
     getGameDeals(query);
 });
 
-// Klavyeden "Enter" tuşuna basıldığında da tetikle (kullanıcı deneyimi!)
 searchInput.addEventListener('keypress', (e) => {
     if (e.key === 'Enter') {
         const query = searchInput.value.trim();
@@ -79,5 +72,4 @@ searchInput.addEventListener('keypress', (e) => {
     }
 });
 
-// Sayfa ilk açıldığında boş arama yapıp en iyi fırsatları getirir
 getGameDeals();
