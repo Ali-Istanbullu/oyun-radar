@@ -38,6 +38,18 @@ function getKinguinLink(gameTitle) {
     return `https://www.kinguin.net/catalogsearch/result/index/?q=${encodedTitle}&r=69984de7361b0`;
 }
 
+// YENİ: 3 AŞAMALI AKILLI HATA ÇÖZÜCÜ
+function handleImageError(imgElement, fallbackThumb) {
+    // 1. HD resim patladıysa, bu fonksiyon çalışır.
+    // 2. Şimdi resme "Eski Orijinal Resmi" yüklemeyi deniyoruz.
+    // 3. Ama o da patlarsa diye yeni bir onerror (Plan C) kuruyoruz.
+    imgElement.onerror = function() {
+        this.onerror = null; // Sonsuz döngüye girmesin diye kapatıyoruz
+        this.src = 'logo.png?v=1'; // Plan C: Her şey çöktüyse logomuzu bas!
+    };
+    imgElement.src = fallbackThumb; // Plan B: Eski orijinal fotoğrafı dene
+}
+
 async function getGameDeals(searchQuery = "") {
     try {
         gamesContainer.innerHTML = '';
@@ -92,9 +104,10 @@ function displayFeaturedGames(games) {
     games.forEach(game => {
         const card = document.createElement('div');
         card.className = 'featured-card';
+        // YENİ: onerror kısmına akıllı fonksiyonumuzu bağladık
         card.innerHTML = `
             <div class="image-container">
-                <img src="${getHighResImage(game.thumb)}" onerror="this.onerror=null; this.src='logo.png?v=1';" alt="${game.title}" class="game-img">
+                <img src="${getHighResImage(game.thumb)}" onerror="handleImageError(this, '${game.thumb}')" alt="${game.title}" class="game-img">
                 <div class="platform-badge" title="Mağaza ID: ${game.storeID}">
                     <img src="https://www.cheapshark.com/img/stores/icons/${game.storeID}.png" alt="Platform">
                 </div>
@@ -123,9 +136,10 @@ function displayListGames(games) {
     games.forEach(game => {
         const card = document.createElement('div');
         card.className = 'game-card';
+        // YENİ: onerror kısmına akıllı fonksiyonumuzu bağladık
         card.innerHTML = `
             <div class="image-container">
-                <img src="${getHighResImage(game.thumb)}" onerror="this.onerror=null; this.src='logo.png?v=1';" alt="${game.title}" class="game-img">
+                <img src="${getHighResImage(game.thumb)}" onerror="handleImageError(this, '${game.thumb}')" alt="${game.title}" class="game-img">
                 <div class="platform-badge" title="Mağaza ID: ${game.storeID}">
                     <img src="https://www.cheapshark.com/img/stores/icons/${game.storeID}.png" alt="Platform">
                 </div>
