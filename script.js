@@ -33,10 +33,10 @@ function getStoreLink(dealID, storeID, steamAppID) {
     return `https://www.cheapshark.com/redirect?dealID=${dealID}`;
 }
 
-// YENİ MOTOR: Kinguin Arama Linkin (Parayı kazandıran kod)
+// YENİ: Kinguin Arama Linkin (Parayı kazandıran kod)
 function getKinguinLink(gameTitle) {
-    // Oyun adını Kinguin'in anlayacağı şekle çevirip senin referans kodunu ekliyor!
     const encodedTitle = encodeURIComponent(gameTitle);
+    // Panodan aldığımız senin özel referans kodun!
     return `https://www.kinguin.net/catalogsearch/result/index/?q=${encodedTitle}&r=69984de7361b0`;
 }
 

@@ -27,22 +27,22 @@ main { padding: 40px 20px; max-width: 1200px; margin: 0 auto; }
 .featured-carousel { display: flex; gap: 20px; overflow-x: auto; scroll-behavior: smooth !important; padding: 10px 0; -ms-overflow-style: none; scrollbar-width: none; }
 .featured-carousel::-webkit-scrollbar { display: none; }
 
-.featured-card { flex: 0 0 320px; background-color: #1e1e1e; border-radius: 12px; overflow: hidden; border: 1px solid #333; transition: transform 0.3s, border-color 0.3s; display: flex; flex-direction: column; }
+.featured-card { flex: 0 0 300px; background-color: #1e1e1e; border-radius: 12px; overflow: hidden; border: 1px solid #333; transition: transform 0.3s, border-color 0.3s; display: flex; flex-direction: column; }
 .featured-card:hover { transform: translateY(-8px); border-color: #00ff88; }
 .featured-card .image-container { position: relative; width: 100%; height: 160px; }
-.featured-card .game-info { display: flex; flex-direction: column; align-items: flex-start; padding: 20px; height: 100%; justify-content: space-between; }
+.featured-card .game-info { display: flex; flex-direction: column; align-items: flex-start; padding: 15px; height: 100%; justify-content: space-between; }
 .featured-card .game-title { width: 100%; white-space: normal; margin-bottom: 15px; font-size: 1.1rem; font-weight: bold; }
 
 .grid-container { display: flex; flex-direction: column; gap: 15px; }
-.game-card { display: flex; flex-direction: row; background-color: #1e1e1e; border-radius: 8px; overflow: hidden; transition: transform 0.2s, border-color 0.2s; border: 1px solid #333; min-height: 110px; align-items: center; }
+.game-card { display: flex; flex-direction: row; background-color: #1e1e1e; border-radius: 8px; overflow: hidden; transition: transform 0.2s, border-color 0.2s; border: 1px solid #333; min-height: 100px; align-items: center; }
 .game-card:hover { transform: translateX(5px); border-color: #00ff88; }
-.game-card .image-container { position: relative; width: 220px; height: 100%; flex-shrink: 0; }
-.game-card .game-info { display: flex; flex-direction: row; justify-content: flex-start; align-items: center; width: 100%; padding: 10px 20px; gap: 20px; }
+.game-card .image-container { position: relative; width: 200px; height: 100%; flex-shrink: 0; }
+.game-card .game-info { display: flex; flex-direction: row; justify-content: flex-start; align-items: center; width: 100%; padding: 10px 20px; gap: 15px; }
 .game-card .game-title { flex: 1; font-size: 1.1rem; margin-bottom: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; font-weight: bold; }
 
 .price-box { display: flex; flex-direction: row; align-items: center; gap: 10px; }
 .featured-card .price-box { margin-bottom: 15px; }
-.game-card .price-box { flex-direction: column; align-items: flex-end; gap: 5px; }
+.game-card .price-box { flex-direction: column; align-items: flex-end; gap: 5px; flex-shrink: 0; }
 
 .discount-badge { background-color: #00ff88; color: #121212; font-size: 1.2rem; font-weight: 900; padding: 5px 8px; border-radius: 6px; box-shadow: 0 2px 5px rgba(0, 255, 136, 0.3); }
 .price-details { display: flex; flex-direction: column; align-items: flex-start; }
@@ -54,16 +54,15 @@ main { padding: 40px 20px; max-width: 1200px; margin: 0 auto; }
 .platform-badge { position: absolute; bottom: 5px; left: 5px; background: rgba(18, 18, 18, 0.9); border-radius: 4px; padding: 4px; border: 1px solid #00ff88; }
 .platform-badge img { width: 20px; height: 20px; border-radius: 4px; }
 
-/* YENİ: ÇİFT BUTON SİSTEMİ (KAZANÇ MOTORU) */
-.action-buttons { display: flex; flex-direction: column; gap: 8px; width: 100%; margin-top: auto; }
-.game-card .action-buttons { width: 140px; flex-shrink: 0; }
+/* YENİ: ZAYIFLAYAN ÇİFT BUTON SİSTEMİ */
+.action-buttons { display: flex; flex-direction: column; gap: 6px; width: 100%; margin-top: auto; }
+.game-card .action-buttons { width: 130px; flex-shrink: 0; }
 
-.buy-btn, .kinguin-btn { display: flex; align-items: center; justify-content: center; padding: 0 15px; text-decoration: none; font-weight: bold; font-size: 0.9rem; border-radius: 25px; transition: all 0.3s; white-space: nowrap !important; height: 36px; line-height: 1; width: 100%; }
+.buy-btn, .kinguin-btn { display: flex; align-items: center; justify-content: center; padding: 0 10px; text-decoration: none; font-weight: bold; font-size: 0.85rem; border-radius: 25px; transition: all 0.3s; white-space: nowrap !important; height: 32px; line-height: 1; width: 100%; }
 
 .buy-btn { background-color: #00ff88; color: #121212; }
 .buy-btn:hover { background-color: #00cc6a; transform: scale(1.03); }
 
-/* KİNGUİN BUTONU TASARIMI */
 .kinguin-btn { background-color: #ff9900; color: #121212; }
 .kinguin-btn:hover { background-color: #e68a00; transform: scale(1.03); }
 
