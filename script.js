@@ -33,10 +33,8 @@ function getStoreLink(dealID, storeID, steamAppID) {
     return `https://www.cheapshark.com/redirect?dealID=${dealID}`;
 }
 
-// YENİ: Kinguin Arama Linkin (Parayı kazandıran kod)
 function getKinguinLink(gameTitle) {
     const encodedTitle = encodeURIComponent(gameTitle);
-    // Panodan aldığımız senin özel referans kodun!
     return `https://www.kinguin.net/catalogsearch/result/index/?q=${encodedTitle}&r=69984de7361b0`;
 }
 
@@ -96,7 +94,7 @@ function displayFeaturedGames(games) {
         card.className = 'featured-card';
         card.innerHTML = `
             <div class="image-container">
-                <img src="${getHighResImage(game.thumb)}" onerror="this.onerror=null; this.src='logo.png';" alt="${game.title}" class="game-img">
+                <img src="${getHighResImage(game.thumb)}" onerror="this.onerror=null; this.src='logo.png?v=1';" alt="${game.title}" class="game-img">
                 <div class="platform-badge" title="Mağaza ID: ${game.storeID}">
                     <img src="https://www.cheapshark.com/img/stores/icons/${game.storeID}.png" alt="Platform">
                 </div>
@@ -127,7 +125,7 @@ function displayListGames(games) {
         card.className = 'game-card';
         card.innerHTML = `
             <div class="image-container">
-                <img src="${getHighResImage(game.thumb)}" onerror="this.onerror=null; this.src='logo.png';" alt="${game.title}" class="game-img">
+                <img src="${getHighResImage(game.thumb)}" onerror="this.onerror=null; this.src='logo.png?v=1';" alt="${game.title}" class="game-img">
                 <div class="platform-badge" title="Mağaza ID: ${game.storeID}">
                     <img src="https://www.cheapshark.com/img/stores/icons/${game.storeID}.png" alt="Platform">
                 </div>
