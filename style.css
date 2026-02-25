@@ -27,41 +27,47 @@ main { padding: 40px 20px; max-width: 1200px; margin: 0 auto; }
 .featured-carousel { display: flex; gap: 20px; overflow-x: auto; scroll-behavior: smooth !important; padding: 10px 0; -ms-overflow-style: none; scrollbar-width: none; }
 .featured-carousel::-webkit-scrollbar { display: none; }
 
-.featured-card { flex: 0 0 300px; background-color: #1e1e1e; border-radius: 12px; overflow: hidden; border: 1px solid #333; transition: transform 0.3s, border-color 0.3s; display: flex; flex-direction: column; }
+.featured-card { flex: 0 0 320px; background-color: #1e1e1e; border-radius: 12px; overflow: hidden; border: 1px solid #333; transition: transform 0.3s, border-color 0.3s; display: flex; flex-direction: column; }
 .featured-card:hover { transform: translateY(-8px); border-color: #00ff88; }
 .featured-card .image-container { position: relative; width: 100%; height: 160px; }
-.featured-card .game-info { display: flex; flex-direction: column; align-items: flex-start; padding: 15px; height: 100%; justify-content: space-between; }
-.featured-card .game-title { width: 100%; white-space: normal; margin-bottom: 15px; font-size: 1.1rem; }
+.featured-card .game-info { display: flex; flex-direction: column; align-items: flex-start; padding: 20px; height: 100%; justify-content: space-between; }
+.featured-card .game-title { width: 100%; white-space: normal; margin-bottom: 15px; font-size: 1.1rem; font-weight: bold; }
 
 .grid-container { display: flex; flex-direction: column; gap: 15px; }
-.game-card { display: flex; flex-direction: row; background-color: #1e1e1e; border-radius: 8px; overflow: hidden; transition: transform 0.2s, border-color 0.2s; border: 1px solid #333; height: 100px; align-items: center; }
+.game-card { display: flex; flex-direction: row; background-color: #1e1e1e; border-radius: 8px; overflow: hidden; transition: transform 0.2s, border-color 0.2s; border: 1px solid #333; min-height: 110px; align-items: center; }
 .game-card:hover { transform: translateX(5px); border-color: #00ff88; }
-.game-card .image-container { position: relative; width: 200px; height: 100px; flex-shrink: 0; }
-.game-card .game-info { display: flex; flex-direction: row; justify-content: space-between; align-items: center; width: 100%; padding: 0 20px; }
-.game-card .game-title { font-size: 1.1rem; margin-bottom: 0; width: 40%; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.game-card .image-container { position: relative; width: 220px; height: 100%; flex-shrink: 0; }
+.game-card .game-info { display: flex; flex-direction: row; justify-content: flex-start; align-items: center; width: 100%; padding: 10px 20px; gap: 20px; }
+.game-card .game-title { flex: 1; font-size: 1.1rem; margin-bottom: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; font-weight: bold; }
 
-.price-box { display: flex; flex-direction: row; justify-content: flex-end; align-items: center; gap: 10px; width: 100%; }
-.featured-card .price-box { justify-content: flex-start; margin-bottom: 15px; }
-.discount-badge { background-color: #00ff88; color: #121212; font-size: 1.3rem; font-weight: 900; padding: 6px 10px; border-radius: 6px; box-shadow: 0 2px 5px rgba(0, 255, 136, 0.3); }
-.price-details { display: flex; flex-direction: column; align-items: flex-end; }
-.featured-card .price-details { align-items: flex-start; }
-.old-price { text-decoration: line-through; color: #ff4444; font-size: 0.9rem; line-height: 1; margin-bottom: 4px; }
+.price-box { display: flex; flex-direction: row; align-items: center; gap: 10px; }
+.featured-card .price-box { margin-bottom: 15px; }
+.game-card .price-box { flex-direction: column; align-items: flex-end; gap: 5px; }
+
+.discount-badge { background-color: #00ff88; color: #121212; font-size: 1.2rem; font-weight: 900; padding: 5px 8px; border-radius: 6px; box-shadow: 0 2px 5px rgba(0, 255, 136, 0.3); }
+.price-details { display: flex; flex-direction: column; align-items: flex-start; }
+.game-card .price-details { align-items: flex-end; }
+.old-price { text-decoration: line-through; color: #ff4444; font-size: 0.85rem; line-height: 1; margin-bottom: 3px; }
 .new-price { color: #ffffff; font-size: 1.2rem; font-weight: bold; line-height: 1; }
 
 .image-container .game-img { width: 100%; height: 100%; object-fit: cover; }
 .platform-badge { position: absolute; bottom: 5px; left: 5px; background: rgba(18, 18, 18, 0.9); border-radius: 4px; padding: 4px; border: 1px solid #00ff88; }
 .platform-badge img { width: 20px; height: 20px; border-radius: 4px; }
 
-.buy-section { display: flex; flex-direction: column; align-items: center; justify-content: center; }
-.game-card .buy-section { align-items: flex-end; min-width: 130px; }
-.featured-card .buy-section { width: 100%; }
-.buy-btn { display: inline-flex; align-items: center; justify-content: center; padding: 0 18px; background-color: #00ff88; color: #121212; text-decoration: none; font-weight: bold; font-size: 0.95rem; border-radius: 25px; transition: background-color 0.3s, transform 0.1s; white-space: nowrap !important; height: 38px; line-height: 1; }
-.featured-card .buy-btn { width: 100%; }
-.buy-btn:hover { background-color: #00cc6a; transform: scale(1.05); }
+/* YENİ: ÇİFT BUTON SİSTEMİ (KAZANÇ MOTORU) */
+.action-buttons { display: flex; flex-direction: column; gap: 8px; width: 100%; margin-top: auto; }
+.game-card .action-buttons { width: 140px; flex-shrink: 0; }
 
-/* UYARI METNİ TASARIMI */
-.disclaimer-text { font-size: 0.65rem; color: #888; margin-top: 5px; white-space: nowrap; }
-.featured-card .disclaimer-text { text-align: center; width: 100%; }
+.buy-btn, .kinguin-btn { display: flex; align-items: center; justify-content: center; padding: 0 15px; text-decoration: none; font-weight: bold; font-size: 0.9rem; border-radius: 25px; transition: all 0.3s; white-space: nowrap !important; height: 36px; line-height: 1; width: 100%; }
+
+.buy-btn { background-color: #00ff88; color: #121212; }
+.buy-btn:hover { background-color: #00cc6a; transform: scale(1.03); }
+
+/* KİNGUİN BUTONU TASARIMI */
+.kinguin-btn { background-color: #ff9900; color: #121212; }
+.kinguin-btn:hover { background-color: #e68a00; transform: scale(1.03); }
+
+.disclaimer-text { font-size: 0.65rem; color: #888; text-align: center; margin-top: 5px; white-space: nowrap; width: 100%; }
 
 .seo-content { max-width: 1200px; margin: 50px auto 20px auto; padding: 30px; background-color: #1a1a1a; border-radius: 8px; border-left: 4px solid #00ff88; }
 .seo-content h2 { color: #00ff88; margin-bottom: 15px; font-size: 1.5rem; }
@@ -81,11 +87,9 @@ footer { max-width: 1200px; margin: 0 auto 20px auto; padding: 20px; text-align:
     #search-input { width: 100%; }
     .search-container { flex-direction: column; align-items: stretch; padding: 0 10px; }
     .game-card { height: auto; flex-direction: column; align-items: flex-start; }
-    .game-card .image-container { width: 100%; height: 120px; }
-    .game-card .game-info { flex-direction: column; align-items: flex-start; padding: 15px; }
-    .game-card .game-title { width: 100%; margin-bottom: 10px; }
-    .game-card .price-box { justify-content: flex-start; margin-bottom: 15px; }
-    .buy-section { width: 100%; align-items: center; }
-    .game-card .buy-section { align-items: center; }
-    .game-card .buy-btn { width: 100%; text-align: center; }
+    .game-card .image-container { width: 100%; height: 140px; }
+    .game-card .game-info { flex-direction: column; align-items: flex-start; padding: 15px; gap: 15px; }
+    .game-card .game-title { width: 100%; white-space: normal; }
+    .game-card .price-box { flex-direction: row; align-items: center; justify-content: flex-start; width: 100%; }
+    .game-card .action-buttons { width: 100%; }
 }
