@@ -114,7 +114,6 @@ function displayFeaturedGames(games) {
         const card = document.createElement('div');
         card.className = 'featured-card';
         
-        // GÖZ BOYAMA: %85 ve üzeri indirimse alevli rozeti hazırla!
         let epicBadgeHTML = '';
         if (Math.round(game.savings) >= 85) {
             epicBadgeHTML = `<div class="epic-badge">🔥 DİP FİYAT</div>`;
@@ -152,8 +151,16 @@ function displayListGames(games) {
     games.forEach(game => {
         const card = document.createElement('div');
         card.className = 'game-card';
+        
+        // EKSİK OLAN KISIM EKLENDİ: Alt liste için de Alevli Rozet kontrolü!
+        let epicBadgeHTML = '';
+        if (Math.round(game.savings) >= 85) {
+            epicBadgeHTML = `<div class="epic-badge">🔥 DİP FİYAT</div>`;
+        }
+
         card.innerHTML = `
             <div class="image-container">
+                ${epicBadgeHTML}
                 <img src="${getHighResImage(game.thumb)}" onerror="handleListImageError(this, '${game.thumb}')" alt="${game.title}" class="game-img">
                 <div class="platform-badge" title="Mağaza ID: ${game.storeID}">
                     <img src="https://www.cheapshark.com/img/stores/icons/${game.storeID}.png" alt="Platform">
