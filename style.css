@@ -27,20 +27,21 @@ main { padding: 40px 20px; max-width: 1200px; margin: 0 auto; }
 .featured-carousel { display: flex; gap: 20px; overflow-x: auto; scroll-behavior: smooth !important; padding: 10px 0; -ms-overflow-style: none; scrollbar-width: none; }
 .featured-carousel::-webkit-scrollbar { display: none; }
 
-.featured-card { flex: 0 0 320px; background-color: #1e1e1e; border-radius: 12px; overflow: hidden; border: 1px solid #333; transition: transform 0.3s, border-color 0.3s; display: flex; flex-direction: column; height: 380px; min-height: 380px; max-height: 380px; }
-.featured-card:hover { transform: translateY(-8px); border-color: #00ff88; }
-
-/* HATA BURADAYDI, ÇÖZÜLDÜ: overflow: hidden ve max-height eklendi */
+/* VİTRİN KARTLARI (GÖZ BOYAMA NEON EFEKTİ EKLENDİ) */
+.featured-card { flex: 0 0 320px; background-color: #1e1e1e; border-radius: 12px; overflow: hidden; border: 1px solid #333; transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s; display: flex; flex-direction: column; height: 380px; min-height: 380px; max-height: 380px; position: relative; }
+.featured-card:hover { transform: translateY(-8px); border-color: #00ff88; box-shadow: 0 10px 25px rgba(0, 255, 136, 0.3); /* Neon yeşil parlama */ }
 .featured-card .image-container { position: relative; width: 100%; height: 160px; min-height: 160px; max-height: 160px; flex-shrink: 0; overflow: hidden; background-color: #1a1a1a; }
 .featured-card .game-info { display: flex; flex-direction: column; align-items: flex-start; padding: 15px; height: 100%; justify-content: space-between; overflow: hidden; }
 .featured-card .game-title { width: 100%; white-space: normal; margin-bottom: 10px; font-size: 1.1rem; font-weight: bold; overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; }
+
+/* YENİ: ALEVLİ DİP FİYAT ROZETİ VE ANİMASYONU */
+.epic-badge { position: absolute; top: 10px; right: 10px; background: linear-gradient(45deg, #ff0055, #ff9900); color: white; padding: 5px 10px; border-radius: 8px; font-size: 0.8rem; font-weight: 900; z-index: 5; box-shadow: 0 4px 10px rgba(255, 0, 85, 0.5); animation: pulse-badge 2s infinite; border: 1px solid #ffcc00; }
+@keyframes pulse-badge { 0% { transform: scale(1); } 50% { transform: scale(1.08); } 100% { transform: scale(1); } }
 
 .grid-container { display: flex; flex-direction: column; gap: 15px; }
 
 .game-card { display: flex; flex-direction: row; background-color: #1e1e1e; border-radius: 8px; overflow: hidden; transition: transform 0.2s, border-color 0.2s; border: 1px solid #333; height: 140px; min-height: 140px; max-height: 140px; align-items: center; }
 .game-card:hover { transform: translateX(5px); border-color: #00ff88; }
-
-/* HATA BURADAYDI, ÇÖZÜLDÜ: min-width, max-height ve overflow: hidden eklendi */
 .game-card .image-container { position: relative; width: 220px; min-width: 220px; max-width: 220px; height: 140px; min-height: 140px; max-height: 140px; flex-shrink: 0; overflow: hidden; background-color: #1a1a1a; }
 .game-card .game-info { display: flex; flex-direction: row; justify-content: flex-start; align-items: center; width: 100%; padding: 10px 20px; gap: 20px; overflow: hidden; }
 .game-card .game-title { flex: 1; font-size: 1.1rem; margin-bottom: 0; white-space: normal; overflow: hidden; text-overflow: ellipsis; font-weight: bold; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; }
@@ -56,7 +57,7 @@ main { padding: 40px 20px; max-width: 1200px; margin: 0 auto; }
 .new-price { color: #ffffff; font-size: 1.2rem; font-weight: bold; line-height: 1; }
 
 .image-container .game-img { width: 100%; height: 100%; object-fit: cover; display: block; }
-.platform-badge { position: absolute; bottom: 5px; left: 5px; background: rgba(18, 18, 18, 0.9); border-radius: 4px; padding: 4px; border: 1px solid #00ff88; }
+.platform-badge { position: absolute; bottom: 5px; left: 5px; background: rgba(18, 18, 18, 0.9); border-radius: 4px; padding: 4px; border: 1px solid #00ff88; z-index: 5; }
 .platform-badge img { width: 20px; height: 20px; border-radius: 4px; }
 
 .action-buttons { display: flex; flex-direction: column; gap: 6px; width: 100%; margin-top: auto; flex-shrink: 0; }
