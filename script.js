@@ -9,23 +9,24 @@ const searchBtn = document.getElementById('search-btn');
 const scrollLeftBtn = document.getElementById('scroll-left');
 const scrollRightBtn = document.getElementById('scroll-right');
 
-// Yağ gibi kaydırma (Smooth Scroll) motoru
 if (scrollLeftBtn && scrollRightBtn) {
     scrollLeftBtn.addEventListener('click', () => {
-        featuredContainer.scrollBy({ 
-            top: 0, 
-            left: -640, 
-            behavior: 'smooth' 
-        });
+        featuredContainer.scrollBy({ top: 0, left: -640, behavior: 'smooth' });
     });
 
     scrollRightBtn.addEventListener('click', () => {
-        featuredContainer.scrollBy({ 
-            top: 0, 
-            left: 640,  
-            behavior: 'smooth' 
-        });
+        featuredContainer.scrollBy({ top: 0, left: 640, behavior: 'smooth' });
     });
+}
+
+// --- YENİ: HD RESİM HACK'İ ---
+// CheapShark'ın verdiği çamur gibi resimleri HD Steam kapaklarıyla değiştirir
+function getHighResImage(url) {
+    if (url.includes('steam/apps')) {
+        // 'capsule_sm_120.jpg' gibi ufak resim linklerini 'header.jpg' (HD) yapar
+        return url.replace(/\/capsule_.*\.jpg/i, '/header.jpg');
+    }
+    return url; // Steam değilse orijinalini bırak
 }
 
 async function getGameDeals(searchQuery = "") {
@@ -82,10 +83,10 @@ function displayFeaturedGames(games) {
     games.forEach(game => {
         const card = document.createElement('div');
         card.className = 'featured-card';
-        // YENİ: İndirim yüzdesi ve yeni fiyat yapısı
+        // getHighResImage fonksiyonu eklendi!
         card.innerHTML = `
             <div class="image-container">
-                <img src="${game.thumb}" alt="${game.title}" class="game-img">
+                <img src="${getHighResImage(game.thumb)}" alt="${game.title}" class="game-img">
                 <div class="platform-badge" title="Mağaza ID: ${game.storeID}">
                     <img src="https://www.cheapshark.com/img/stores/icons/${game.storeID}.png" alt="Platform">
                 </div>
@@ -110,10 +111,10 @@ function displayListGames(games) {
     games.forEach(game => {
         const card = document.createElement('div');
         card.className = 'game-card';
-        // YENİ: İndirim yüzdesi ve yeni fiyat yapısı
+        // getHighResImage fonksiyonu eklendi!
         card.innerHTML = `
             <div class="image-container">
-                <img src="${game.thumb}" alt="${game.title}" class="game-img">
+                <img src="${getHighResImage(game.thumb)}" alt="${game.title}" class="game-img">
                 <div class="platform-badge" title="Mağaza ID: ${game.storeID}">
                     <img src="https://www.cheapshark.com/img/stores/icons/${game.storeID}.png" alt="Platform">
                 </div>
