@@ -183,8 +183,6 @@ main {
     font-size: 1.1rem;
 }
 
-.featured-card .buy-btn { width: 100%; text-align: center; }
-
 /* --- YATAY LİSTE --- */
 .grid-container {
     display: flex;
@@ -234,7 +232,7 @@ main {
     text-overflow: ellipsis;
 }
 
-/* --- YENİ: İNDİRİM ETİKETİ VE FİYAT KUTUSU --- */
+/* --- İNDİRİM ETİKETİ VE FİYAT KUTUSU --- */
 .price-box {
     display: flex;
     flex-direction: row;
@@ -278,7 +276,7 @@ main {
 }
 
 .new-price {
-    color: #ffffff; /* İndirim etiketi yeşil olduğu için yeni fiyatı beyaz yaptık, daha şık duruyor */
+    color: #ffffff;
     font-size: 1.2rem;
     font-weight: bold;
     line-height: 1;
@@ -291,22 +289,49 @@ main {
     background: rgba(18, 18, 18, 0.9); border-radius: 4px; padding: 4px; border: 1px solid #00ff88;
 }
 .platform-badge img { width: 20px; height: 20px; border-radius: 4px; }
+
+/* YENİ: BUTON VE UYARI YAZISI BÖLÜMÜ */
+.buy-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.featured-card .buy-section {
+    width: 100%;
+}
+
 .buy-btn {
-    display: inline-block;
-    padding: 8px 16px; /* İçi boşaltıldı, kibarlaştırıldı */
+    display: inline-flex; 
+    align-items: center;
+    justify-content: center;
+    padding: 0 18px; 
     background-color: #00ff88;
     color: #121212;
     text-decoration: none;
     font-weight: bold;
-    font-size: 0.95rem; /* Yazı boyutu hafif küçüldü */
-    border-radius: 20px; /* Daha zarif bir yuvarlaklık eklendi */
+    font-size: 0.95rem; 
+    border-radius: 25px; 
     transition: background-color 0.3s, transform 0.1s;
-    white-space: nowrap; /* Yazının alt satıra kayması engellendi */
+    white-space: nowrap !important;
+    height: 38px; 
+    line-height: 1; 
 }
+
+.featured-card .buy-btn { width: 100%; }
 
 .buy-btn:hover { 
     background-color: #00cc6a; 
-    transform: scale(1.05); /* Üzerine gelince tatlıca büyüsün */
+    transform: scale(1.05); 
+}
+
+/* YENİ: Fiyat uyarısı */
+.disclaimer-text {
+    font-size: 0.65rem;
+    color: #888;
+    margin-top: 5px;
+    text-align: center;
+    width: 100%;
 }
 
 /* --- SEO VE FOOTER --- */
@@ -346,5 +371,6 @@ footer {
     .game-card .game-info { flex-direction: column; align-items: flex-start; padding: 15px; }
     .game-card .game-title { width: 100%; margin-bottom: 10px; }
     .game-card .price-box { justify-content: flex-start; margin-bottom: 15px; }
+    .buy-section { width: 100%; }
     .game-card .buy-btn { width: 100%; text-align: center; }
 }
