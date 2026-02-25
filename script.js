@@ -26,13 +26,10 @@ function getHighResImage(url) {
     return url; 
 }
 
-// YENİ: Mağaza linkini güvenli ve doğrudan ayarlayan fonksiyon
 function getStoreLink(dealID, storeID, steamAppID) {
-    // Mağaza ID 1 = Steam. Eğer oyun Steam'deyse aracıları devreden çıkarıp doğrudan Steam'e yolluyoruz!
     if (storeID === '1' && steamAppID) {
         return `https://store.steampowered.com/app/${steamAppID}`;
     }
-    // Eğer Steam dışındaysa, şimdilik CheapShark linkini kullanıyoruz
     return `https://www.cheapshark.com/redirect?dealID=${dealID}`;
 }
 
@@ -46,7 +43,8 @@ async function getGameDeals(searchQuery = "") {
         loadingText.style.display = 'block';
         loadingText.innerText = "İndirimler taranıyor... Yapay zeka iş başında 🤖";
 
-        let url = 'https://www.cheapshark.com/api/1.0/deals?sortBy=Deal%20Rating&pageSize=60&metacritic=75';
+        // YENİ: &onSale=1 EKLENDİ! Biten indirimleri çöpe atar.
+        let url = 'https://www.cheapshark.com/api/1.0/deals?sortBy=Deal%20Rating&pageSize=60&metacritic=75&onSale=1';
         
         if (searchQuery !== "") {
             url += `&title=${searchQuery}`;
@@ -90,10 +88,10 @@ function displayFeaturedGames(games) {
     games.forEach(game => {
         const card = document.createElement('div');
         card.className = 'featured-card';
-        // YENİ: buy-section yapısı ve getStoreLink fonksiyonu entegre edildi
+        // YENİ: onerror kısmında logo.png var ve dürüstlük uyarısı eklendi!
         card.innerHTML = `
             <div class="image-container">
-                <img src="${getHighResImage(game.thumb)}" onerror="this.onerror=null; this.src='${game.thumb}';" alt="${game.title}" class="game-img">
+                <img src="${getHighResImage(game.thumb)}" onerror="this.onerror=null; this.src='logo.png';" alt="${game.title}" class="game-img">
                 <div class="platform-badge" title="Mağaza ID: ${game.storeID}">
                     <img src="https://www.cheapshark.com/img/stores/icons/${game.storeID}.png" alt="Platform">
                 </div>
@@ -109,7 +107,7 @@ function displayFeaturedGames(games) {
                 </div>
                 <div class="buy-section">
                     <a href="${getStoreLink(game.dealID, game.storeID, game.steamAppID)}" target="_blank" class="buy-btn">İndirimi Gör</a>
-                    <span class="disclaimer-text">Fiyatlar anlık değişebilir.</span>
+                    <span class="disclaimer-text">Global fiyattır, bölgenizde değişebilir.</span>
                 </div>
             </div>
         `;
@@ -121,10 +119,10 @@ function displayListGames(games) {
     games.forEach(game => {
         const card = document.createElement('div');
         card.className = 'game-card';
-        // YENİ: buy-section yapısı ve getStoreLink fonksiyonu entegre edildi
+        // YENİ: onerror kısmında logo.png var ve dürüstlük uyarısı eklendi!
         card.innerHTML = `
             <div class="image-container">
-                <img src="${getHighResImage(game.thumb)}" onerror="this.onerror=null; this.src='${game.thumb}';" alt="${game.title}" class="game-img">
+                <img src="${getHighResImage(game.thumb)}" onerror="this.onerror=null; this.src='logo.png';" alt="${game.title}" class="game-img">
                 <div class="platform-badge" title="Mağaza ID: ${game.storeID}">
                     <img src="https://www.cheapshark.com/img/stores/icons/${game.storeID}.png" alt="Platform">
                 </div>
@@ -140,7 +138,7 @@ function displayListGames(games) {
                 </div>
                 <div class="buy-section">
                     <a href="${getStoreLink(game.dealID, game.storeID, game.steamAppID)}" target="_blank" class="buy-btn">İndirimi Gör</a>
-                    <span class="disclaimer-text">Fiyatlar anlık değişebilir.</span>
+                    <span class="disclaimer-text">Global fiyattır, bölgenizde değişebilir.</span>
                 </div>
             </div>
         `;

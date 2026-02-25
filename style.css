@@ -1,367 +1,81 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+body { background-color: #121212; color: #ffffff; }
 
-body {
-    background-color: #121212;
-    color: #ffffff;
-}
+header { text-align: center; padding: 30px 20px; background: linear-gradient(90deg, #1e1e1e, #2d2d2d); border-bottom: 2px solid #00ff88; display: flex; flex-direction: column; align-items: center; }
+#site-logo { width: 120px; height: auto; margin-bottom: 20px; filter: drop-shadow(0 0 8px rgba(0, 255, 136, 0.6)); transition: transform 0.3s; }
+#site-logo:hover { transform: scale(1.05); }
 
-/* --- HEADER VE LOGO --- */
-header {
-    text-align: center;
-    padding: 30px 20px;
-    background: linear-gradient(90deg, #1e1e1e, #2d2d2d);
-    border-bottom: 2px solid #00ff88;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
+main { padding: 40px 20px; max-width: 1200px; margin: 0 auto; }
+#loading { text-align: center; font-size: 1.2rem; color: #888; margin-top: 20px; }
 
-#site-logo {
-    width: 120px;
-    height: auto;
-    margin-bottom: 20px;
-    filter: drop-shadow(0 0 8px rgba(0, 255, 136, 0.6));
-    transition: transform 0.3s;
-}
-
-#site-logo:hover {
-    transform: scale(1.05);
-}
-
-main {
-    padding: 40px 20px;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-#loading {
-    text-align: center;
-    font-size: 1.2rem;
-    color: #888;
-    margin-top: 20px;
-}
-
-/* --- ARAMA MOTORU --- */
-.search-container {
-    margin-top: 10px;
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-    width: 100%;
-}
-
-#search-input {
-    width: 80%;
-    max-width: 650px;
-    padding: 16px 25px;
-    border-radius: 30px;
-    border: 2px solid #333;
-    background-color: #1a1a1a;
-    color: #ffffff;
-    font-size: 1.1rem;
-    outline: none;
-    transition: border-color 0.3s, box-shadow 0.3s;
-}
-
-#search-input:focus {
-    border-color: #00ff88;
-    box-shadow: 0 0 15px rgba(0, 255, 136, 0.2);
-}
-
-#search-btn {
-    padding: 16px 35px;
-    border-radius: 30px;
-    border: none;
-    background-color: #00ff88;
-    color: #121212;
-    font-weight: bold;
-    font-size: 1.1rem;
-    cursor: pointer;
-    transition: background-color 0.3s, transform 0.1s;
-}
-
+.search-container { margin-top: 10px; display: flex; justify-content: center; gap: 15px; width: 100%; }
+#search-input { width: 80%; max-width: 650px; padding: 16px 25px; border-radius: 30px; border: 2px solid #333; background-color: #1a1a1a; color: #ffffff; font-size: 1.1rem; outline: none; transition: border-color 0.3s, box-shadow 0.3s; }
+#search-input:focus { border-color: #00ff88; box-shadow: 0 0 15px rgba(0, 255, 136, 0.2); }
+#search-btn { padding: 16px 35px; border-radius: 30px; border: none; background-color: #00ff88; color: #121212; font-weight: bold; font-size: 1.1rem; cursor: pointer; transition: background-color 0.3s, transform 0.1s; }
 #search-btn:hover { background-color: #00cc6a; }
 #search-btn:active { transform: scale(0.95); }
 
-/* --- BAŞLIKLAR --- */
-.section-title {
-    color: #00ff88;
-    margin-bottom: 20px;
-    margin-top: 10px;
-    font-size: 1.5rem;
-    border-bottom: 2px solid #333;
-    padding-bottom: 10px;
-}
+.section-title { color: #00ff88; margin-bottom: 20px; margin-top: 10px; font-size: 1.5rem; border-bottom: 2px solid #333; padding-bottom: 10px; }
 
-/* --- ÖNE ÇIKANLAR (CAROUSEL) --- */
-#featured-section {
-    margin-bottom: 40px;
-}
-
-.carousel-wrapper {
-    position: relative;
-    display: flex;
-    align-items: center;
-}
-
-.carousel-btn {
-    position: absolute;
-    z-index: 10;
-    background-color: rgba(18, 18, 18, 0.95);
-    color: #00ff88;
-    border: 2px solid #00ff88;
-    border-radius: 50%;
-    width: 50px;
-    height: 50px;
-    font-size: 1.5rem;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.8);
-}
-
-.carousel-btn:hover {
-    background-color: #00ff88;
-    color: #121212;
-    transform: scale(1.1);
-}
-
+#featured-section { margin-bottom: 40px; }
+.carousel-wrapper { position: relative; display: flex; align-items: center; }
+.carousel-btn { position: absolute; z-index: 10; background-color: rgba(18, 18, 18, 0.95); color: #00ff88; border: 2px solid #00ff88; border-radius: 50%; width: 50px; height: 50px; font-size: 1.5rem; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all 0.3s ease; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.8); }
+.carousel-btn:hover { background-color: #00ff88; color: #121212; transform: scale(1.1); }
 #scroll-left { left: -25px; }
 #scroll-right { right: -25px; }
 
-.featured-carousel {
-    display: flex;
-    gap: 20px;
-    overflow-x: auto;
-    scroll-behavior: smooth !important; 
-    padding: 10px 0;
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-}
+.featured-carousel { display: flex; gap: 20px; overflow-x: auto; scroll-behavior: smooth !important; padding: 10px 0; -ms-overflow-style: none; scrollbar-width: none; }
 .featured-carousel::-webkit-scrollbar { display: none; }
 
-.featured-card {
-    flex: 0 0 300px;
-    background-color: #1e1e1e;
-    border-radius: 12px;
-    overflow: hidden;
-    border: 1px solid #333;
-    transition: transform 0.3s, border-color 0.3s;
-    display: flex;
-    flex-direction: column;
-}
+.featured-card { flex: 0 0 300px; background-color: #1e1e1e; border-radius: 12px; overflow: hidden; border: 1px solid #333; transition: transform 0.3s, border-color 0.3s; display: flex; flex-direction: column; }
+.featured-card:hover { transform: translateY(-8px); border-color: #00ff88; }
+.featured-card .image-container { position: relative; width: 100%; height: 160px; }
+.featured-card .game-info { display: flex; flex-direction: column; align-items: flex-start; padding: 15px; height: 100%; justify-content: space-between; }
+.featured-card .game-title { width: 100%; white-space: normal; margin-bottom: 15px; font-size: 1.1rem; }
 
-.featured-card:hover {
-    transform: translateY(-8px);
-    border-color: #00ff88;
-}
+.grid-container { display: flex; flex-direction: column; gap: 15px; }
+.game-card { display: flex; flex-direction: row; background-color: #1e1e1e; border-radius: 8px; overflow: hidden; transition: transform 0.2s, border-color 0.2s; border: 1px solid #333; height: 100px; align-items: center; }
+.game-card:hover { transform: translateX(5px); border-color: #00ff88; }
+.game-card .image-container { position: relative; width: 200px; height: 100px; flex-shrink: 0; }
+.game-card .game-info { display: flex; flex-direction: row; justify-content: space-between; align-items: center; width: 100%; padding: 0 20px; }
+.game-card .game-title { font-size: 1.1rem; margin-bottom: 0; width: 40%; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 
-.featured-card .image-container {
-    position: relative;
-    width: 100%;
-    height: 160px;
-}
+.price-box { display: flex; flex-direction: row; justify-content: flex-end; align-items: center; gap: 10px; width: 100%; }
+.featured-card .price-box { justify-content: flex-start; margin-bottom: 15px; }
+.discount-badge { background-color: #00ff88; color: #121212; font-size: 1.3rem; font-weight: 900; padding: 6px 10px; border-radius: 6px; box-shadow: 0 2px 5px rgba(0, 255, 136, 0.3); }
+.price-details { display: flex; flex-direction: column; align-items: flex-end; }
+.featured-card .price-details { align-items: flex-start; }
+.old-price { text-decoration: line-through; color: #ff4444; font-size: 0.9rem; line-height: 1; margin-bottom: 4px; }
+.new-price { color: #ffffff; font-size: 1.2rem; font-weight: bold; line-height: 1; }
 
-.featured-card .game-info {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 15px;
-}
-
-.featured-card .game-title {
-    width: 100%;
-    white-space: normal;
-    margin-bottom: 15px;
-    font-size: 1.1rem;
-}
-
-/* --- YATAY LİSTE --- */
-.grid-container {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-}
-
-.game-card {
-    display: flex;
-    flex-direction: row;
-    background-color: #1e1e1e;
-    border-radius: 8px;
-    overflow: hidden;
-    transition: transform 0.2s, border-color 0.2s;
-    border: 1px solid #333;
-    height: 100px;
-    align-items: center;
-}
-
-.game-card:hover {
-    transform: translateX(5px);
-    border-color: #00ff88;
-}
-
-.game-card .image-container {
-    position: relative;
-    width: 200px;
-    height: 100px;
-    flex-shrink: 0;
-}
-
-.game-card .game-info {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    padding: 0 20px;
-}
-
-.game-card .game-title {
-    font-size: 1.1rem;
-    margin-bottom: 0;
-    width: 40%;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
-
-/* --- İNDİRİM ETİKETİ VE FİYAT KUTUSU --- */
-.price-box {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-end;
-    align-items: center;
-    gap: 10px;
-    width: 100%;
-}
-
-.featured-card .price-box {
-    justify-content: flex-start;
-    margin-bottom: 15px;
-}
-
-.discount-badge {
-    background-color: #00ff88;
-    color: #121212;
-    font-size: 1.3rem;
-    font-weight: 900;
-    padding: 6px 10px;
-    border-radius: 6px;
-    box-shadow: 0 2px 5px rgba(0, 255, 136, 0.3);
-}
-
-.price-details {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-}
-
-.featured-card .price-details {
-    align-items: flex-start;
-}
-
-.old-price {
-    text-decoration: line-through;
-    color: #ff4444;
-    font-size: 0.9rem;
-    line-height: 1;
-    margin-bottom: 4px;
-}
-
-.new-price {
-    color: #ffffff;
-    font-size: 1.2rem;
-    font-weight: bold;
-    line-height: 1;
-}
-
-/* --- ORTAK AYARLAR --- */
 .image-container .game-img { width: 100%; height: 100%; object-fit: cover; }
-.platform-badge {
-    position: absolute; bottom: 5px; left: 5px;
-    background: rgba(18, 18, 18, 0.9); border-radius: 4px; padding: 4px; border: 1px solid #00ff88;
-}
+.platform-badge { position: absolute; bottom: 5px; left: 5px; background: rgba(18, 18, 18, 0.9); border-radius: 4px; padding: 4px; border: 1px solid #00ff88; }
 .platform-badge img { width: 20px; height: 20px; border-radius: 4px; }
 
-/* YENİ: BUTON VE UYARI YAZISI BÖLÜMÜ */
-.buy-section {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.featured-card .buy-section {
-    width: 100%;
-}
-
-.buy-btn {
-    display: inline-flex; 
-    align-items: center;
-    justify-content: center;
-    padding: 0 18px; 
-    background-color: #00ff88;
-    color: #121212;
-    text-decoration: none;
-    font-weight: bold;
-    font-size: 0.95rem; 
-    border-radius: 25px; 
-    transition: background-color 0.3s, transform 0.1s;
-    white-space: nowrap !important;
-    height: 38px; 
-    line-height: 1; 
-}
-
+.buy-section { display: flex; flex-direction: column; align-items: center; justify-content: center; }
+.game-card .buy-section { align-items: flex-end; min-width: 130px; }
+.featured-card .buy-section { width: 100%; }
+.buy-btn { display: inline-flex; align-items: center; justify-content: center; padding: 0 18px; background-color: #00ff88; color: #121212; text-decoration: none; font-weight: bold; font-size: 0.95rem; border-radius: 25px; transition: background-color 0.3s, transform 0.1s; white-space: nowrap !important; height: 38px; line-height: 1; }
 .featured-card .buy-btn { width: 100%; }
+.buy-btn:hover { background-color: #00cc6a; transform: scale(1.05); }
 
-.buy-btn:hover { 
-    background-color: #00cc6a; 
-    transform: scale(1.05); 
-}
+/* UYARI METNİ TASARIMI */
+.disclaimer-text { font-size: 0.65rem; color: #888; margin-top: 5px; white-space: nowrap; }
+.featured-card .disclaimer-text { text-align: center; width: 100%; }
 
-/* YENİ: Fiyat uyarısı */
-.disclaimer-text {
-    font-size: 0.65rem;
-    color: #888;
-    margin-top: 5px;
-    text-align: center;
-    width: 100%;
-}
-
-/* --- SEO VE FOOTER --- */
-.seo-content {
-    max-width: 1200px; margin: 50px auto 20px auto; padding: 30px;
-    background-color: #1a1a1a; border-radius: 8px; border-left: 4px solid #00ff88;
-}
+.seo-content { max-width: 1200px; margin: 50px auto 20px auto; padding: 30px; background-color: #1a1a1a; border-radius: 8px; border-left: 4px solid #00ff88; }
 .seo-content h2 { color: #00ff88; margin-bottom: 15px; font-size: 1.5rem; }
 .seo-content p { line-height: 1.6; margin-bottom: 15px; color: #cccccc; }
-footer {
-    max-width: 1200px; margin: 0 auto 20px auto; padding: 20px;
-    text-align: center; border-top: 1px solid #333; color: #888;
-}
+footer { max-width: 1200px; margin: 0 auto 20px auto; padding: 20px; text-align: center; border-top: 1px solid #333; color: #888; }
 .footer-links { margin-bottom: 15px; }
 .footer-links a { color: #00ff88; text-decoration: none; margin: 0 10px; font-size: 0.9rem; }
 .footer-links a:hover { text-decoration: underline; }
 
-/* --- ALT SAYFALAR --- */
-.page-content {
-    max-width: 800px; margin: 40px auto; padding: 30px;
-    background-color: #1a1a1a; border-radius: 8px; color: #cccccc; line-height: 1.6; border-top: 3px solid #00ff88;
-}
+.page-content { max-width: 800px; margin: 40px auto; padding: 30px; background-color: #1a1a1a; border-radius: 8px; color: #cccccc; line-height: 1.6; border-top: 3px solid #00ff88; }
 .page-content h2, .page-content h3 { color: #00ff88; margin-bottom: 15px; margin-top: 25px; }
 .page-content a { color: #00ff88; text-decoration: none; }
-.back-link {
-    display: inline-block; margin-top: 20px; padding: 10px 20px;
-    background-color: #333; color: #00ff88; border-radius: 25px; text-decoration: none; font-weight: bold;
-}
+.back-link { display: inline-block; margin-top: 20px; padding: 10px 20px; background-color: #333; color: #00ff88; border-radius: 25px; text-decoration: none; font-weight: bold; }
 
-/* TELEFON UYUMU */
 @media (max-width: 768px) {
     .carousel-btn { display: none; }
     #search-input { width: 100%; }
@@ -371,6 +85,7 @@ footer {
     .game-card .game-info { flex-direction: column; align-items: flex-start; padding: 15px; }
     .game-card .game-title { width: 100%; margin-bottom: 10px; }
     .game-card .price-box { justify-content: flex-start; margin-bottom: 15px; }
-    .buy-section { width: 100%; }
+    .buy-section { width: 100%; align-items: center; }
+    .game-card .buy-section { align-items: center; }
     .game-card .buy-btn { width: 100%; text-align: center; }
 }
