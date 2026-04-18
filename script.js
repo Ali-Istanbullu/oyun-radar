@@ -71,6 +71,14 @@ function getKinguinLink(gameTitle) {
     return `https://www.kinguin.net/catalogsearch/result/index/?q=${encodedTitle}&r=69984de7361b0`;
 }
 
+function getStoreBtnLabel(storeID) {
+    if (storeID === '1') return 'Steam\'de Kontrol Et ↗';
+    if (storeID === '25') return 'Epic\'de Kontrol Et ↗';
+    if (storeID === '7') return 'GOG\'da Kontrol Et ↗';
+    if (storeID === '11') return 'Humble\'da Kontrol Et ↗';
+    return 'Mağazada Kontrol Et ↗';
+}
+
 function formatPrice(price) {
     const num = parseFloat(price);
     if (isNaN(num) || num <= 0) return 'Ücretsiz';
@@ -188,9 +196,9 @@ function displayFeaturedGames(games) {
                     </div>
                 </div>
                 <div class="action-buttons">
-                    <a href="${getStoreLink(game.dealID, game.storeID, game.steamAppID)}" target="_blank" class="buy-btn">Resmi Mağaza</a>
-                    <a href="${getKinguinLink(game.title)}" target="_blank" class="kinguin-btn">Kinguin'de Ara</a>
-                    <span class="disclaimer-text">Global fiyatlardır.</span>
+                    <a href="${getStoreLink(game.dealID, game.storeID, game.steamAppID)}" target="_blank" class="buy-btn">${getStoreBtnLabel(game.storeID)}</a>
+                    <a href="${getKinguinLink(game.title)}" target="_blank" class="kinguin-btn">Kinguin'de Ara 🔑</a>
+                    <span class="disclaimer-text">💲 USD fiyat — TRY için tıkla</span>
                 </div>
             </div>
         `;
@@ -227,9 +235,9 @@ function displayListGames(games) {
                     </div>
                 </div>
                 <div class="action-buttons">
-                    <a href="${getStoreLink(game.dealID, game.storeID, game.steamAppID)}" target="_blank" class="buy-btn">Resmi Mağaza</a>
-                    <a href="${getKinguinLink(game.title)}" target="_blank" class="kinguin-btn">Kinguin'de Ara</a>
-                    <span class="disclaimer-text">Global fiyatlardır.</span>
+                    <a href="${getStoreLink(game.dealID, game.storeID, game.steamAppID)}" target="_blank" class="buy-btn">${getStoreBtnLabel(game.storeID)}</a>
+                    <a href="${getKinguinLink(game.title)}" target="_blank" class="kinguin-btn">Kinguin'de Ara 🔑</a>
+                    <span class="disclaimer-text">💲 USD fiyat — TRY için tıkla</span>
                 </div>
             </div>
         `;

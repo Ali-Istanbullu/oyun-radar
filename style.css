@@ -8,6 +8,9 @@ header { text-align: center; padding: 30px 20px; background: linear-gradient(90d
 main { padding: 40px 20px; max-width: 1200px; margin: 0 auto; }
 #loading { text-align: center; font-size: 1.2rem; color: #888; margin-top: 20px; }
 
+.usd-banner { background: linear-gradient(90deg, #2a1f00, #3d2e00); border-top: 2px solid #ffcc00; border-bottom: 2px solid #ffcc00; color: #ffcc00; text-align: center; padding: 10px 20px; font-size: 0.95rem; letter-spacing: 0.02em; }
+.usd-banner strong { color: #fff; }
+
 .search-container { margin-top: 10px; display: flex; justify-content: center; gap: 15px; width: 100%; }
 #search-input { width: 80%; max-width: 650px; padding: 16px 25px; border-radius: 30px; border: 2px solid #333; background-color: #1a1a1a; color: #ffffff; font-size: 1.1rem; outline: none; transition: border-color 0.3s, box-shadow 0.3s; }
 #search-input:focus { border-color: #00ff88; box-shadow: 0 0 15px rgba(0, 255, 136, 0.2); }
@@ -71,7 +74,7 @@ main { padding: 40px 20px; max-width: 1200px; margin: 0 auto; }
 .kinguin-btn { background-color: #ff9900; color: #121212; }
 .kinguin-btn:hover { background-color: #e68a00; transform: scale(1.03); }
 
-.disclaimer-text { font-size: 0.65rem; color: #888; text-align: center; margin-top: 5px; white-space: nowrap; width: 100%; overflow: hidden; text-overflow: ellipsis; }
+.disclaimer-text { font-size: 0.7rem; color: #ffaa00; text-align: center; margin-top: 5px; white-space: nowrap; width: 100%; overflow: hidden; text-overflow: ellipsis; font-weight: 600; }
 
 .seo-content { max-width: 1200px; margin: 50px auto 20px auto; padding: 30px; background-color: #1a1a1a; border-radius: 8px; border-left: 4px solid #00ff88; }
 .seo-content h2 { color: #00ff88; margin-bottom: 15px; font-size: 1.5rem; }
