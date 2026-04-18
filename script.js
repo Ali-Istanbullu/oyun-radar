@@ -68,7 +68,7 @@ function getStoreLink(dealID, storeID, steamAppID) {
 
 function getKinguinLink(gameTitle) {
     const encodedTitle = encodeURIComponent(gameTitle);
-    return `https://www.kinguin.net/search?phrase=${encodedTitle}&r=69984de7361b0`;
+    return `https://www.kinguin.net/?r=69984de7361b0&search=${encodedTitle}`;
 }
 
 function getStoreBtnLabel(storeID) {
