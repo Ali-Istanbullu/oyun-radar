@@ -91,7 +91,7 @@ function handleFeaturedImageError(imgElement, fallbackThumb) {
         if (card) {
             card.className = 'game-card';
             document.getElementById('games-container').appendChild(card);
-            this.src = 'logo.png?v=1';
+            this.src = 'assets/img/logo.png';
             this.onerror = null;
         }
     };
@@ -100,7 +100,7 @@ function handleFeaturedImageError(imgElement, fallbackThumb) {
 
 function handleListImageError(imgElement, fallbackThumb) {
     imgElement.onerror = function() {
-        this.src = 'logo.png?v=1';
+        this.src = 'assets/img/logo.png';
         this.onerror = null;
     };
     imgElement.src = fallbackThumb;
@@ -222,7 +222,7 @@ function displayListGames(games) {
         card.innerHTML = `
             <div class="image-container">
                 ${epicBadgeHTML}
-                <img src="${getHighResImage(game.thumb)}" onerror="handleListImageError(this, '${game.thumb}')" alt="${game.title}" class="game-img">
+                <img src="${getHighResImage(game.thumb)}" onerror="handleListImageError(this, '${game.thumb}')" alt="${game.title}" class="game-img" loading="lazy">
                 ${buildPlatformBadge(game.storeID)}
             </div>
             <div class="game-info">
@@ -259,3 +259,17 @@ searchInput.addEventListener('keypress', (e) => {
 
 // Önce mağaza listesini yükle, sonra oyunları getir
 loadStores().then(() => getGameDeals());
+
+// Test ortamı için fonksiyonları dışa aktar
+if (typeof module !== 'undefined' && module.exports) {
+    module.exports = {
+        getStoreName,
+        getStoreIconUrl,
+        getHighResImage,
+        getStoreLink,
+        getKinguinLink,
+        getStoreBtnLabel,
+        formatPrice,
+        storeMap
+    };
+}

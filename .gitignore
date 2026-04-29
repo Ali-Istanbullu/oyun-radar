@@ -1,0 +1,16 @@
+# Dependencies
+node_modules/
+package-lock.json
+
+# Test Reports
+coverage/
+lighthouse-report.json
+
+# IDE / System
+.DS_Store
+.vscode/
+.idea/
+
+# Environment Variables
+.env
+.env.local
