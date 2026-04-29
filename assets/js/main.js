@@ -1,6 +1,7 @@
 import { fetchStores, fetchDeals } from './api.js';
 import { displayFeaturedGames, displayListGames } from './ui.js';
 import { initializeStores } from './utils.js';
+import Logger from './logger.js';
 
 /**
  * Oyun Radar Ana (Main) Modülü
@@ -52,6 +53,7 @@ async function loadAndDisplayDeals(searchQuery = "") {
         }
 
     } catch (error) {
+        Logger.error('Fırsatlar yüklenirken hata oluştu:', error);
         if (loadingText) loadingText.innerHTML = 'Fırsatlar yüklenirken bir hata oluştu. Lütfen sayfayı yenileyin.';
     }
 }
@@ -88,11 +90,10 @@ if (scrollLeftBtn && scrollRightBtn && featuredContainer) {
  * Uygulamanın başlangıç fonksiyonu. Önce mağaza listesini, ardından oyunları çeker.
  */
 async function initApp() {
-    // Önce mağaza verilerini yükle ve map'i oluştur
+    Logger.info('Uygulama başlatılıyor...');
     const stores = await fetchStores();
     initializeStores(stores);
-    
-    // Sonra oyun verilerini çek ve göster
+    Logger.info(`${Object.keys(stores).length || stores.length} mağaza yüklendi.`);
     await loadAndDisplayDeals();
 }
 

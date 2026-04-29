@@ -4,6 +4,8 @@
  * DOM manipülasyonu içermez.
  */
 
+import Logger from './logger.js';
+
 /**
  * CheapShark API'sinden mağaza listesini asenkron olarak çeker.
  * @returns {Promise<Array>} Mağaza nesnelerini içeren dizi.
@@ -14,7 +16,7 @@ export async function fetchStores() {
         if (!response.ok) throw new Error('Network response was not ok');
         return await response.json();
     } catch (error) {
-        console.warn('Mağaza listesi yüklenemedi:', error);
+        Logger.warn('Mağaza listesi yüklenemedi:', error);
         return [];
     }
 }
@@ -37,7 +39,7 @@ export async function fetchDeals(searchQuery = "") {
         
         return await response.json();
     } catch (error) {
-        console.error("API Hatası:", error);
+        Logger.error('API Hatası:', error);
         throw error;
     }
 }
