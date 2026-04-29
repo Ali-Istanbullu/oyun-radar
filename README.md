@@ -24,11 +24,11 @@ Uygulamayı indirmeden doğrudan tarayıcınız üzerinden test edebilirsiniz:
 
 ## 📸 Ekran Görüntüleri
 
-*(Projenin canlı halinden ekran görüntüleri. Lütfen `assets/img/screenshot-1.png` ve `assets/img/screenshot-2.png` dosyalarını kendi çektiğiniz görüntülerle değiştirin.)*
+
 
 <div align="center">
-  <img src="assets/img/screenshot-1.png" alt="Ana Sayfa Görünümü" width="48%" style="border-radius: 8px; border: 1px solid #333;"/>
-  <img src="assets/img/screenshot-2.png" alt="Arama Sonuçları Görünümü" width="48%" style="border-radius: 8px; border: 1px solid #333;"/>
+  <img src="assets/img/Ekran görüntüsü 2026-04-30 000620.png" alt="Ana Sayfa Görünümü" width="48%" style="border-radius: 8px; border: 1px solid #333;"/>
+  <img src="assets/img/Ekran görüntüsü 2026-04-30 000644.png" alt="Arama Sonuçları Görünümü" width="48%" style="border-radius: 8px; border: 1px solid #333;"/>
 </div>
 
 ## 🛠 Kullanılan Teknolojiler
