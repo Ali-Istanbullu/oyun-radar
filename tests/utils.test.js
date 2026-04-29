@@ -22,7 +22,8 @@ global.fetch = jest.fn(() =>
     })
 );
 
-const {
+import { jest } from '@jest/globals';
+import {
     getStoreName,
     getStoreIconUrl,
     getHighResImage,
@@ -31,7 +32,7 @@ const {
     getStoreBtnLabel,
     formatPrice,
     storeMap
-} = require('../assets/js/script');
+} from '../assets/js/utils.js';
 
 describe('Oyun Radar - Yardımcı Fonksiyon Testleri', () => {
     beforeEach(() => {

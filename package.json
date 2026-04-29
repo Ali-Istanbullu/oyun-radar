@@ -2,7 +2,7 @@
   "name": "oyunradar",
   "version": "1.0.0",
   "description": "",
-  "main": "script.js",
+  "main": "assets/js/main.js",
   "scripts": {
     "test": "jest"
   },
@@ -13,12 +13,14 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "type": "commonjs",
   "bugs": {
     "url": "https://github.com/ali-istanbullu/oyun-radar/issues"
   },
   "homepage": "https://github.com/ali-istanbullu/oyun-radar#readme",
   "devDependencies": {
+    "@babel/core": "^7.29.0",
+    "@babel/preset-env": "^7.29.2",
+    "babel-jest": "^30.3.0",
     "jest": "^30.3.0",
     "jest-environment-jsdom": "^30.3.0"
   }
