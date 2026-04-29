@@ -31,7 +31,7 @@ const {
     getStoreBtnLabel,
     formatPrice,
     storeMap
-} = require('./assets/js/script');
+} = require('../assets/js/script');
 
 describe('Oyun Radar - Yardımcı Fonksiyon Testleri', () => {
     beforeEach(() => {

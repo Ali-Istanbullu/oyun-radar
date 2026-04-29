@@ -1,37 +1,52 @@
-# Oyun Radar 🎮
+<div align="center">
+  <img src="assets/img/logo.png" alt="Oyun Radar Logo" width="150"/>
+  <h1>🎮 Oyun Radar</h1>
+  <p><strong>Steam, Epic Games, GOG ve diğer resmi oyun mağazalarındaki anlık indirimleri tarayan, yapay zeka destekli fırsat motoru.</strong></p>
 
-Oyun Radar, Steam, Epic Games, GOG ve diğer resmi oyun mağazalarındaki anlık indirimleri tarayan, kullanıcıların en sevdikleri PC oyunlarına en uygun fiyatlarla ulaşmasını sağlayan yapay zeka destekli bir fırsat bulucu (deal tracker) web uygulamasıdır. 
+  [![Live Demo](https://img.shields.io/badge/Live-Demo-2ea44f?style=for-the-badge)](https://ali-istanbullu.github.io/oyun-radar)
+  [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)](https://opensource.org/licenses/MIT)
+</div>
 
-**🚀 Canlı Demo (Live Demo):** [Oyun Radar'ı Canlı İnceleyin](https://ali-istanbullu.github.io/oyun-radar) *(Not: GitHub Pages linkiniz bu şekilde olacaktır, yapılandırma sonrası aktifleşir.)*
+---
 
-## 🎯 Projenin Amacı
-Gittikçe artan oyun fiyatları nedeniyle kullanıcıların farklı mağazalarda hangi oyunun daha uygun fiyata satıldığını tek tek kontrol etmesi zordur. Oyun Radar, CheapShark API entegrasyonu sayesinde:
-- Çeşitli mağazalardaki anlık indirimleri tek bir ekranda listeler.
-- %85 ve üzeri indirim alan oyunlara "DİP FİYAT" etiketi verir.
-- Spesifik oyun isimleri ile arama yapmanızı ve doğrudan ürün sayfasına gitmenizi sağlar.
-- Satın almadan önce alternatif olarak Kinguin üzerinden oyun key'i (anahtarı) aramanızı sağlayan hızlı entegrasyonlar sunar.
+## 📖 Projenin Amacı
+Gittikçe artan oyun fiyatları nedeniyle kullanıcıların farklı mağazalarda hangi oyunun daha uygun fiyata satıldığını tek tek kontrol etmesi zordur. **Oyun Radar**, bu problemi çözmek için tasarlandı. 
 
-## 🛠 Kullanılan Teknolojiler
-Bu proje, modern web standartlarına uygun olarak hafif ve performanslı olması için saf (vanilla) teknolojiler kullanılarak geliştirilmiştir.
+CheapShark API entegrasyonu sayesinde:
+- Çeşitli mağazalardaki anlık indirimleri tek bir ekranda saniyeler içinde listeler.
+- `%85` ve üzeri indirim alan oyunlara özel **"🔥 DİP FİYAT"** etiketi verir.
+- Spesifik oyun isimleri ile hızlı arama yapmanızı ve doğrudan ürün sayfasına gitmenizi sağlar.
+- Satın almadan önce alternatif olarak Kinguin üzerinden oyun key'i (anahtarı) aramanızı sağlayan hızlı kısayollar sunar.
 
-- **HTML5 & CSS3:** Semantik web yapısı, esnek Grid & Flexbox tabanlı responsive (mobil uyumlu) mat, profesyonel tasarım.
-- **Vanilla JavaScript (ES6+):** Asenkron veri çekme (Fetch API), dinamik DOM manipülasyonu.
-- **Jest:** Projedeki JavaScript fonksiyonlarının (veri işleme vb.) güvenilirliğini doğrulamak için kurulan birim (unit) test altyapısı.
-- **Lighthouse:** Performans, SEO ve erişilebilirlik optimizasyonları için test aracı.
+## 🚀 Canlı Demo
+Uygulamayı indirmeden doğrudan tarayıcınız üzerinden test edebilirsiniz:
+👉 **[Oyun Radar'ı Canlı İnceleyin](https://ali-istanbullu.github.io/oyun-radar)**
 
 ## 📸 Ekran Görüntüleri
-*(Proje GitHub'a yüklendikten sonra buraya uygulamanın ekran görüntülerini ekleyebilirsiniz.)*
-<!-- ![Ana Sayfa](assets/img/screenshot-1.png) -->
-<!-- ![Arama Sonuçları](assets/img/screenshot-2.png) -->
 
-## ⚡ Performans ve Optimizasyon
-- Proje, yüksek performans sağlaması amacıyla optimize edilmiştir.
-- **Lazy Loading:** API'den gelen resimler, sayfanın alt kısımlarına inildikçe yüklenir (Lazy Loading), bu sayede İlk Boyama (FCP) süreleri oldukça düşüktür.
-- **Test Kapsamı:** Ana uygulama mantığındaki metodlar `%100` oranında test edilmiştir.
+*(Projenin canlı halinden ekran görüntüleri. Lütfen `assets/img/screenshot-1.png` ve `assets/img/screenshot-2.png` dosyalarını kendi çektiğiniz görüntülerle değiştirin.)*
 
-## 🚀 Kurulum (Local Development)
+<div align="center">
+  <img src="assets/img/screenshot-1.png" alt="Ana Sayfa Görünümü" width="48%" style="border-radius: 8px; border: 1px solid #333;"/>
+  <img src="assets/img/screenshot-2.png" alt="Arama Sonuçları Görünümü" width="48%" style="border-radius: 8px; border: 1px solid #333;"/>
+</div>
 
-Projeyi kendi bilgisayarınızda çalıştırmak veya geliştirmek isterseniz aşağıdaki adımları takip edebilirsiniz:
+## 🛠 Kullanılan Teknolojiler
+Bu proje, modern web standartlarına uygun, hafif, performanslı ve tamamen dışa bağımlılığı en aza indirgenmiş (vanilla) bir mimari ile geliştirilmiştir:
+
+- **Frontend (Arayüz):** HTML5, CSS3 (Flexbox & Grid, Mobil Uyumlu Mat Kurumsal Tasarım), Vanilla JavaScript (ES6+)
+- **API (Veri Sağlayıcı):** [CheapShark API](https://apidocs.cheapshark.com/) (Asenkron Fetch işlemleri)
+- **Test Altyapısı:** Node.js & Jest (Unit Testing)
+- **Performans Ölçümü:** Google Chrome Lighthouse
+
+## ⚡ Performans ve Mimari Özellikleri
+- **Lazy Loading (Tembel Yükleme):** Liste içerisindeki görseller sadece kullanıcı sayfayı aşağı kaydırdıkça yüklenir (`loading="lazy"`). Bu sayede sayfa açılış (FCP) süresi minimize edilmiştir.
+- **Modüler Yapı:** Tüm kaynak dosyaları `assets` klasörü altında CSS, JS ve IMG olarak düzenli bir şekilde kategorize edilmiştir.
+- **Test Kapsamı:** Veri parse etme, link oluşturma ve veri dönüşümleri gibi hayati JavaScript fonksiyonları `%100` oranında birim testleri ile güvence altına alınmıştır. (Daha fazla bilgi için: `TEST_DOKUMANTASYONU.md`)
+
+## 💻 Kurulum (Local Development)
+
+Projeyi bilgisayarınızda çalıştırmak veya kodları incelemek için:
 
 1. **Projeyi Klonlayın:**
    ```bash
@@ -39,21 +54,25 @@ Projeyi kendi bilgisayarınızda çalıştırmak veya geliştirmek isterseniz a�
    cd oyun-radar
    ```
 
-2. **Bağımlılıkları Yükleyin (Test Ortamı için):**
+2. **Bağımlılıkları Yükleyin (Sadece test çalıştırmak için gereklidir):**
    ```bash
    npm install
    ```
 
-3. **Uygulamayı Çalıştırın:**
-   Herhangi bir local server (örneğin VS Code Live Server eklentisi veya `npx http-server`) kullanarak `index.html` dosyasını çalıştırabilirsiniz.
+3. **Projeyi Çalıştırın:**
+   Herhangi bir local server (örneğin VS Code üzerinden `Live Server` eklentisi) veya komut satırı aracı kullanarak projeyi başlatın:
    ```bash
    npx http-server -p 8080
    ```
+   Ardından tarayıcınızda `http://localhost:8080` adresine gidin.
 
 4. **Testleri Çalıştırın:**
    ```bash
    npm test
    ```
 
+## 🤝 Katkıda Bulunma
+Bu proje geliştirilmeye açıktır. Herhangi bir hata bulursanız veya özellik önermek isterseniz, lütfen bir **Issue** açın veya **Pull Request** gönderin.
+
 ## 📄 Lisans
-Bu proje kişisel bir portfolyo çalışmasıdır. Kodlar açık kaynaklı olup, eğitim ve geliştirme amaçlı kullanılabilir.
+Bu proje kişisel bir portfolyo çalışmasıdır. Kodlar açık kaynaklı olup, [MIT Lisansı](https://opensource.org/licenses/MIT) altında eğitim ve geliştirme amaçlı özgürce kullanılabilir.
